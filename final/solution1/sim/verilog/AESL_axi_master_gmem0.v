@@ -1,5 +1,5 @@
 // ==============================================================
-// File generated on Wed Dec 18 11:00:28 +0700 2024
+// File generated on Wed Dec 18 23:06:03 +0700 2024
 // Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
 // SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 // IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
@@ -56,7 +56,11 @@ module AESL_axi_master_gmem0 (
     TRAN_gmem0_BRESP,
     TRAN_gmem0_BID,
     TRAN_gmem0_BUSER,
-    TRAN_gmem0_input_r,
+    TRAN_gmem0_input_0,
+    TRAN_gmem0_input_1,
+    TRAN_gmem0_input_2,
+    TRAN_gmem0_input_3,
+    TRAN_gmem0_input_4,
     ready,
     done
     );
@@ -126,7 +130,11 @@ input  TRAN_gmem0_BREADY;
 output [2 - 1 : 0] TRAN_gmem0_BRESP;
 output [gmem0_ID_BITWIDTH - 1 : 0] TRAN_gmem0_BID;
 output [gmem0_BUSER_BITWIDTH - 1 : 0] TRAN_gmem0_BUSER;
-output [64 - 1 : 0] TRAN_gmem0_input_r;
+output [64 - 1 : 0] TRAN_gmem0_input_0;
+output [64 - 1 : 0] TRAN_gmem0_input_1;
+output [64 - 1 : 0] TRAN_gmem0_input_2;
+output [64 - 1 : 0] TRAN_gmem0_input_3;
+output [64 - 1 : 0] TRAN_gmem0_input_4;
 input ready;
 input done;
 
@@ -196,7 +204,11 @@ reg [gmem0_DATA_BITWIDTH - 1:0] RDATA_tmp = 0;
 reg [2 - 1:0] RRESP_tmp = 0;
 reg RLAST_tmp = 0;
 reg RVALID_tmp = 0;
-reg [64 - 1 : 0] input_r = 0;
+reg [64 - 1 : 0] input_0 = 0;
+reg [64 - 1 : 0] input_1 = 0;
+reg [64 - 1 : 0] input_2 = 0;
+reg [64 - 1 : 0] input_3 = 0;
+reg [64 - 1 : 0] input_4 = 0;
 reg [gmem0_DATA_BITWIDTH - 1 : 0] gmem0_mem_0 [0: gmem0_mem_depth - 1]; 
 reg [gmem0_DATA_BITWIDTH - 1 : 0] gmem0_mem_1 [0: gmem0_mem_depth - 1]; 
 reg [gmem0_DATA_BITWIDTH - 1 : 0] gmem0_mem_2 [0: gmem0_mem_depth - 1]; 
@@ -218,7 +230,11 @@ assign TRAN_gmem0_RDATA = RDATA_tmp;
 assign TRAN_gmem0_RRESP = RRESP_tmp;
 assign TRAN_gmem0_RLAST = RLAST_tmp;
 assign TRAN_gmem0_RVALID = RVALID_tmp;
-assign    TRAN_gmem0_input_r = input_r;
+assign    TRAN_gmem0_input_0 = input_0;
+assign    TRAN_gmem0_input_1 = input_1;
+assign    TRAN_gmem0_input_2 = input_2;
+assign    TRAN_gmem0_input_3 = input_3;
+assign    TRAN_gmem0_input_4 = input_4;
 
 initial begin : initialize_offset
   integer DATA_byte_num; 
@@ -226,7 +242,11 @@ initial begin : initialize_offset
   DATA_byte_num = 0; 
   c_bitwidth = gmem0_C_DATA_BITWIDTH;
   count_c_data_byte_num_by_bitwidth (c_bitwidth , DATA_byte_num);
-  input_r <= 0 * DATA_byte_num;
+  input_0 <= 0 * DATA_byte_num;
+  input_1 <= 5 * DATA_byte_num;
+  input_2 <= 10 * DATA_byte_num;
+  input_3 <= 15 * DATA_byte_num;
+  input_4 <= 20 * DATA_byte_num;
 end
 
 initial begin : initialize_gmem0_mem
@@ -876,7 +896,307 @@ initial begin : read_file_process
       end
       mem_page = transaction_num % mem_page_num ;
       mem_tmp [gmem0_DATA_BITWIDTH - 1: 0] = 0;
-      for(i = 0; i < 25 ; i = i + 1) begin 
+      for(i = 0; i < 5 ; i = i + 1) begin 
+          token = read_token(fp);
+          ret = $sscanf(token, "0x%x", token_tmp); 
+          if (factor == 4) begin
+              if (i%factor == 0) begin
+                  mem_tmp [7 : 0] = token_tmp;
+              end
+              if (i%factor == 1) begin
+                  mem_tmp [15 : 8] = token_tmp;
+              end
+              if (i%factor == 2) begin
+                  mem_tmp [23 : 16] = token_tmp;
+              end
+              if (i%factor == 3) begin
+                  mem_tmp [31 : 24] = token_tmp;
+                  case(mem_page)
+                      0 : gmem0_mem_0[i/factor] = mem_tmp;
+                      1 : gmem0_mem_1[i/factor] = mem_tmp;
+                      2 : gmem0_mem_2[i/factor] = mem_tmp;
+                      3 : gmem0_mem_3[i/factor] = mem_tmp;
+                      default: $display("The page_num of read file is not valid!");
+                  endcase
+                  mem_tmp [gmem0_DATA_BITWIDTH - 1 : 0] = 0;
+              end
+          end
+          if (factor == 2) begin
+              if (i%factor == 0) begin
+                  mem_tmp [15 : 0] = token_tmp;
+              end
+              if (i%factor == 1) begin
+                  mem_tmp [31 : 16] = token_tmp;
+                  case(mem_page)
+                      0 : gmem0_mem_0[i/factor] = mem_tmp;
+                      1 : gmem0_mem_1[i/factor] = mem_tmp;
+                      2 : gmem0_mem_2[i/factor] = mem_tmp;
+                      3 : gmem0_mem_3[i/factor] = mem_tmp;
+                      default: $display("The page_num of read file is not valid!");
+                  endcase
+                  mem_tmp [gmem0_DATA_BITWIDTH - 1: 0] = 0;
+              end
+          end
+          if (factor == 1) begin
+              mem_tmp = token_tmp;
+              case(mem_page)
+                  0 : gmem0_mem_0[i] = mem_tmp;
+                  1 : gmem0_mem_1[i] = mem_tmp;
+                  2 : gmem0_mem_2[i] = mem_tmp;
+                  3 : gmem0_mem_3[i] = mem_tmp;
+                  default: $display("The page_num of read file is not valid!");
+              endcase
+              mem_tmp [gmem0_DATA_BITWIDTH - 1: 0] = 0;
+          end
+      end 
+      if (factor == 4) begin
+          if (i%factor != 0) begin
+              case(mem_page)
+                  0 : gmem0_mem_0[i/factor] = mem_tmp;
+                  1 : gmem0_mem_1[i/factor] = mem_tmp;
+                  2 : gmem0_mem_2[i/factor] = mem_tmp;
+                  3 : gmem0_mem_3[i/factor] = mem_tmp;
+                  default: $display("The page_num of read file is not valid!");
+              endcase
+          end
+      end
+      if (factor == 2) begin
+          if (i%factor != 0) begin
+              case(mem_page)
+                  0 : gmem0_mem_0[i/factor] = mem_tmp;
+                  1 : gmem0_mem_1[i/factor] = mem_tmp;
+                  2 : gmem0_mem_2[i/factor] = mem_tmp;
+                  3 : gmem0_mem_3[i/factor] = mem_tmp;
+                  default: $display("The page_num of read file is not valid!");
+              endcase
+          end
+      end 
+      for(i = 5; i < 10 ; i = i + 1) begin 
+          token = read_token(fp);
+          ret = $sscanf(token, "0x%x", token_tmp); 
+          if (factor == 4) begin
+              if (i%factor == 0) begin
+                  mem_tmp [7 : 0] = token_tmp;
+              end
+              if (i%factor == 1) begin
+                  mem_tmp [15 : 8] = token_tmp;
+              end
+              if (i%factor == 2) begin
+                  mem_tmp [23 : 16] = token_tmp;
+              end
+              if (i%factor == 3) begin
+                  mem_tmp [31 : 24] = token_tmp;
+                  case(mem_page)
+                      0 : gmem0_mem_0[i/factor] = mem_tmp;
+                      1 : gmem0_mem_1[i/factor] = mem_tmp;
+                      2 : gmem0_mem_2[i/factor] = mem_tmp;
+                      3 : gmem0_mem_3[i/factor] = mem_tmp;
+                      default: $display("The page_num of read file is not valid!");
+                  endcase
+                  mem_tmp [gmem0_DATA_BITWIDTH - 1 : 0] = 0;
+              end
+          end
+          if (factor == 2) begin
+              if (i%factor == 0) begin
+                  mem_tmp [15 : 0] = token_tmp;
+              end
+              if (i%factor == 1) begin
+                  mem_tmp [31 : 16] = token_tmp;
+                  case(mem_page)
+                      0 : gmem0_mem_0[i/factor] = mem_tmp;
+                      1 : gmem0_mem_1[i/factor] = mem_tmp;
+                      2 : gmem0_mem_2[i/factor] = mem_tmp;
+                      3 : gmem0_mem_3[i/factor] = mem_tmp;
+                      default: $display("The page_num of read file is not valid!");
+                  endcase
+                  mem_tmp [gmem0_DATA_BITWIDTH - 1: 0] = 0;
+              end
+          end
+          if (factor == 1) begin
+              mem_tmp = token_tmp;
+              case(mem_page)
+                  0 : gmem0_mem_0[i] = mem_tmp;
+                  1 : gmem0_mem_1[i] = mem_tmp;
+                  2 : gmem0_mem_2[i] = mem_tmp;
+                  3 : gmem0_mem_3[i] = mem_tmp;
+                  default: $display("The page_num of read file is not valid!");
+              endcase
+              mem_tmp [gmem0_DATA_BITWIDTH - 1: 0] = 0;
+          end
+      end 
+      if (factor == 4) begin
+          if (i%factor != 0) begin
+              case(mem_page)
+                  0 : gmem0_mem_0[i/factor] = mem_tmp;
+                  1 : gmem0_mem_1[i/factor] = mem_tmp;
+                  2 : gmem0_mem_2[i/factor] = mem_tmp;
+                  3 : gmem0_mem_3[i/factor] = mem_tmp;
+                  default: $display("The page_num of read file is not valid!");
+              endcase
+          end
+      end
+      if (factor == 2) begin
+          if (i%factor != 0) begin
+              case(mem_page)
+                  0 : gmem0_mem_0[i/factor] = mem_tmp;
+                  1 : gmem0_mem_1[i/factor] = mem_tmp;
+                  2 : gmem0_mem_2[i/factor] = mem_tmp;
+                  3 : gmem0_mem_3[i/factor] = mem_tmp;
+                  default: $display("The page_num of read file is not valid!");
+              endcase
+          end
+      end 
+      for(i = 10; i < 15 ; i = i + 1) begin 
+          token = read_token(fp);
+          ret = $sscanf(token, "0x%x", token_tmp); 
+          if (factor == 4) begin
+              if (i%factor == 0) begin
+                  mem_tmp [7 : 0] = token_tmp;
+              end
+              if (i%factor == 1) begin
+                  mem_tmp [15 : 8] = token_tmp;
+              end
+              if (i%factor == 2) begin
+                  mem_tmp [23 : 16] = token_tmp;
+              end
+              if (i%factor == 3) begin
+                  mem_tmp [31 : 24] = token_tmp;
+                  case(mem_page)
+                      0 : gmem0_mem_0[i/factor] = mem_tmp;
+                      1 : gmem0_mem_1[i/factor] = mem_tmp;
+                      2 : gmem0_mem_2[i/factor] = mem_tmp;
+                      3 : gmem0_mem_3[i/factor] = mem_tmp;
+                      default: $display("The page_num of read file is not valid!");
+                  endcase
+                  mem_tmp [gmem0_DATA_BITWIDTH - 1 : 0] = 0;
+              end
+          end
+          if (factor == 2) begin
+              if (i%factor == 0) begin
+                  mem_tmp [15 : 0] = token_tmp;
+              end
+              if (i%factor == 1) begin
+                  mem_tmp [31 : 16] = token_tmp;
+                  case(mem_page)
+                      0 : gmem0_mem_0[i/factor] = mem_tmp;
+                      1 : gmem0_mem_1[i/factor] = mem_tmp;
+                      2 : gmem0_mem_2[i/factor] = mem_tmp;
+                      3 : gmem0_mem_3[i/factor] = mem_tmp;
+                      default: $display("The page_num of read file is not valid!");
+                  endcase
+                  mem_tmp [gmem0_DATA_BITWIDTH - 1: 0] = 0;
+              end
+          end
+          if (factor == 1) begin
+              mem_tmp = token_tmp;
+              case(mem_page)
+                  0 : gmem0_mem_0[i] = mem_tmp;
+                  1 : gmem0_mem_1[i] = mem_tmp;
+                  2 : gmem0_mem_2[i] = mem_tmp;
+                  3 : gmem0_mem_3[i] = mem_tmp;
+                  default: $display("The page_num of read file is not valid!");
+              endcase
+              mem_tmp [gmem0_DATA_BITWIDTH - 1: 0] = 0;
+          end
+      end 
+      if (factor == 4) begin
+          if (i%factor != 0) begin
+              case(mem_page)
+                  0 : gmem0_mem_0[i/factor] = mem_tmp;
+                  1 : gmem0_mem_1[i/factor] = mem_tmp;
+                  2 : gmem0_mem_2[i/factor] = mem_tmp;
+                  3 : gmem0_mem_3[i/factor] = mem_tmp;
+                  default: $display("The page_num of read file is not valid!");
+              endcase
+          end
+      end
+      if (factor == 2) begin
+          if (i%factor != 0) begin
+              case(mem_page)
+                  0 : gmem0_mem_0[i/factor] = mem_tmp;
+                  1 : gmem0_mem_1[i/factor] = mem_tmp;
+                  2 : gmem0_mem_2[i/factor] = mem_tmp;
+                  3 : gmem0_mem_3[i/factor] = mem_tmp;
+                  default: $display("The page_num of read file is not valid!");
+              endcase
+          end
+      end 
+      for(i = 15; i < 20 ; i = i + 1) begin 
+          token = read_token(fp);
+          ret = $sscanf(token, "0x%x", token_tmp); 
+          if (factor == 4) begin
+              if (i%factor == 0) begin
+                  mem_tmp [7 : 0] = token_tmp;
+              end
+              if (i%factor == 1) begin
+                  mem_tmp [15 : 8] = token_tmp;
+              end
+              if (i%factor == 2) begin
+                  mem_tmp [23 : 16] = token_tmp;
+              end
+              if (i%factor == 3) begin
+                  mem_tmp [31 : 24] = token_tmp;
+                  case(mem_page)
+                      0 : gmem0_mem_0[i/factor] = mem_tmp;
+                      1 : gmem0_mem_1[i/factor] = mem_tmp;
+                      2 : gmem0_mem_2[i/factor] = mem_tmp;
+                      3 : gmem0_mem_3[i/factor] = mem_tmp;
+                      default: $display("The page_num of read file is not valid!");
+                  endcase
+                  mem_tmp [gmem0_DATA_BITWIDTH - 1 : 0] = 0;
+              end
+          end
+          if (factor == 2) begin
+              if (i%factor == 0) begin
+                  mem_tmp [15 : 0] = token_tmp;
+              end
+              if (i%factor == 1) begin
+                  mem_tmp [31 : 16] = token_tmp;
+                  case(mem_page)
+                      0 : gmem0_mem_0[i/factor] = mem_tmp;
+                      1 : gmem0_mem_1[i/factor] = mem_tmp;
+                      2 : gmem0_mem_2[i/factor] = mem_tmp;
+                      3 : gmem0_mem_3[i/factor] = mem_tmp;
+                      default: $display("The page_num of read file is not valid!");
+                  endcase
+                  mem_tmp [gmem0_DATA_BITWIDTH - 1: 0] = 0;
+              end
+          end
+          if (factor == 1) begin
+              mem_tmp = token_tmp;
+              case(mem_page)
+                  0 : gmem0_mem_0[i] = mem_tmp;
+                  1 : gmem0_mem_1[i] = mem_tmp;
+                  2 : gmem0_mem_2[i] = mem_tmp;
+                  3 : gmem0_mem_3[i] = mem_tmp;
+                  default: $display("The page_num of read file is not valid!");
+              endcase
+              mem_tmp [gmem0_DATA_BITWIDTH - 1: 0] = 0;
+          end
+      end 
+      if (factor == 4) begin
+          if (i%factor != 0) begin
+              case(mem_page)
+                  0 : gmem0_mem_0[i/factor] = mem_tmp;
+                  1 : gmem0_mem_1[i/factor] = mem_tmp;
+                  2 : gmem0_mem_2[i/factor] = mem_tmp;
+                  3 : gmem0_mem_3[i/factor] = mem_tmp;
+                  default: $display("The page_num of read file is not valid!");
+              endcase
+          end
+      end
+      if (factor == 2) begin
+          if (i%factor != 0) begin
+              case(mem_page)
+                  0 : gmem0_mem_0[i/factor] = mem_tmp;
+                  1 : gmem0_mem_1[i/factor] = mem_tmp;
+                  2 : gmem0_mem_2[i/factor] = mem_tmp;
+                  3 : gmem0_mem_3[i/factor] = mem_tmp;
+                  default: $display("The page_num of read file is not valid!");
+              endcase
+          end
+      end 
+      for(i = 20; i < 25 ; i = i + 1) begin 
           token = read_token(fp);
           ret = $sscanf(token, "0x%x", token_tmp); 
           if (factor == 4) begin

@@ -1,5 +1,5 @@
 // ==============================================================
-// File generated on Wed Dec 18 11:00:28 +0700 2024
+// File generated on Wed Dec 18 23:06:03 +0700 2024
 // Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
 // SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 // IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
@@ -28,8 +28,14 @@ module AESL_axi_slave_AXILiteS (
     TRAN_s_axi_AXILiteS_BVALID,
     TRAN_s_axi_AXILiteS_BREADY,
     TRAN_s_axi_AXILiteS_BRESP,
-    TRAN_input_r,
-    TRAN_kernel,
+    TRAN_input_0,
+    TRAN_input_1,
+    TRAN_input_2,
+    TRAN_input_3,
+    TRAN_input_4,
+    TRAN_kernel_0,
+    TRAN_kernel_1,
+    TRAN_kernel_2,
     TRAN_output_r,
     TRAN_AXILiteS_write_data_finish,
     TRAN_AXILiteS_start_in,
@@ -44,26 +50,56 @@ module AESL_axi_slave_AXILiteS (
     );
 
 //------------------------Parameter----------------------
-`define TV_IN_input_r "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_r.dat"
-`define TV_IN_kernel "../tv/cdatafile/c.conv2D_conv2D.autotvin_kernel.dat"
+`define TV_IN_input_0 "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_0.dat"
+`define TV_IN_input_1 "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_1.dat"
+`define TV_IN_input_2 "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_2.dat"
+`define TV_IN_input_3 "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_3.dat"
+`define TV_IN_input_4 "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_4.dat"
+`define TV_IN_kernel_0 "../tv/cdatafile/c.conv2D_conv2D.autotvin_kernel_0.dat"
+`define TV_IN_kernel_1 "../tv/cdatafile/c.conv2D_conv2D.autotvin_kernel_1.dat"
+`define TV_IN_kernel_2 "../tv/cdatafile/c.conv2D_conv2D.autotvin_kernel_2.dat"
 `define TV_IN_output_r "../tv/cdatafile/c.conv2D_conv2D.autotvin_output_r.dat"
-parameter ADDR_WIDTH = 6;
+parameter ADDR_WIDTH = 7;
 parameter DATA_WIDTH = 32;
-parameter input_r_DEPTH = 1;
-reg [31 : 0] input_r_OPERATE_DEPTH = 1;
-parameter input_r_c_bitwidth = 64;
-parameter kernel_DEPTH = 1;
-reg [31 : 0] kernel_OPERATE_DEPTH = 1;
-parameter kernel_c_bitwidth = 64;
+parameter input_0_DEPTH = 1;
+reg [31 : 0] input_0_OPERATE_DEPTH = 1;
+parameter input_0_c_bitwidth = 64;
+parameter input_1_DEPTH = 1;
+reg [31 : 0] input_1_OPERATE_DEPTH = 1;
+parameter input_1_c_bitwidth = 64;
+parameter input_2_DEPTH = 1;
+reg [31 : 0] input_2_OPERATE_DEPTH = 1;
+parameter input_2_c_bitwidth = 64;
+parameter input_3_DEPTH = 1;
+reg [31 : 0] input_3_OPERATE_DEPTH = 1;
+parameter input_3_c_bitwidth = 64;
+parameter input_4_DEPTH = 1;
+reg [31 : 0] input_4_OPERATE_DEPTH = 1;
+parameter input_4_c_bitwidth = 64;
+parameter kernel_0_DEPTH = 1;
+reg [31 : 0] kernel_0_OPERATE_DEPTH = 1;
+parameter kernel_0_c_bitwidth = 64;
+parameter kernel_1_DEPTH = 1;
+reg [31 : 0] kernel_1_OPERATE_DEPTH = 1;
+parameter kernel_1_c_bitwidth = 64;
+parameter kernel_2_DEPTH = 1;
+reg [31 : 0] kernel_2_OPERATE_DEPTH = 1;
+parameter kernel_2_c_bitwidth = 64;
 parameter output_r_DEPTH = 1;
 reg [31 : 0] output_r_OPERATE_DEPTH = 1;
 parameter output_r_c_bitwidth = 64;
 parameter START_ADDR = 0;
 parameter conv2D_continue_addr = 0;
 parameter conv2D_auto_start_addr = 0;
-parameter input_r_data_in_addr = 16;
-parameter kernel_data_in_addr = 28;
-parameter output_r_data_in_addr = 40;
+parameter input_0_data_in_addr = 16;
+parameter input_1_data_in_addr = 28;
+parameter input_2_data_in_addr = 40;
+parameter input_3_data_in_addr = 52;
+parameter input_4_data_in_addr = 64;
+parameter kernel_0_data_in_addr = 76;
+parameter kernel_1_data_in_addr = 88;
+parameter kernel_2_data_in_addr = 100;
+parameter output_r_data_in_addr = 112;
 parameter STATUS_ADDR = 0;
 
 output [ADDR_WIDTH - 1 : 0] TRAN_s_axi_AXILiteS_AWADDR;
@@ -83,8 +119,14 @@ input [2 - 1 : 0] TRAN_s_axi_AXILiteS_RRESP;
 input  TRAN_s_axi_AXILiteS_BVALID;
 output  TRAN_s_axi_AXILiteS_BREADY;
 input [2 - 1 : 0] TRAN_s_axi_AXILiteS_BRESP;
-input    [64 - 1 : 0] TRAN_input_r;
-input    [64 - 1 : 0] TRAN_kernel;
+input    [64 - 1 : 0] TRAN_input_0;
+input    [64 - 1 : 0] TRAN_input_1;
+input    [64 - 1 : 0] TRAN_input_2;
+input    [64 - 1 : 0] TRAN_input_3;
+input    [64 - 1 : 0] TRAN_input_4;
+input    [64 - 1 : 0] TRAN_kernel_0;
+input    [64 - 1 : 0] TRAN_kernel_1;
+input    [64 - 1 : 0] TRAN_kernel_2;
 input    [64 - 1 : 0] TRAN_output_r;
 output TRAN_AXILiteS_write_data_finish;
 input     clk;
@@ -109,10 +151,22 @@ reg  ARVALID_reg = 0;
 reg  RREADY_reg = 0;
 reg [DATA_WIDTH - 1 : 0] RDATA_reg = 0;
 reg  BREADY_reg = 0;
-reg [input_r_c_bitwidth - 1 : 0] reg_input_r;
-reg input_r_write_data_finish;
-reg [kernel_c_bitwidth - 1 : 0] reg_kernel;
-reg kernel_write_data_finish;
+reg [input_0_c_bitwidth - 1 : 0] reg_input_0;
+reg input_0_write_data_finish;
+reg [input_1_c_bitwidth - 1 : 0] reg_input_1;
+reg input_1_write_data_finish;
+reg [input_2_c_bitwidth - 1 : 0] reg_input_2;
+reg input_2_write_data_finish;
+reg [input_3_c_bitwidth - 1 : 0] reg_input_3;
+reg input_3_write_data_finish;
+reg [input_4_c_bitwidth - 1 : 0] reg_input_4;
+reg input_4_write_data_finish;
+reg [kernel_0_c_bitwidth - 1 : 0] reg_kernel_0;
+reg kernel_0_write_data_finish;
+reg [kernel_1_c_bitwidth - 1 : 0] reg_kernel_1;
+reg kernel_1_write_data_finish;
+reg [kernel_2_c_bitwidth - 1 : 0] reg_kernel_2;
+reg kernel_2_write_data_finish;
 reg [output_r_c_bitwidth - 1 : 0] reg_output_r;
 reg output_r_write_data_finish;
 reg AESL_ready_out_index_reg = 0;
@@ -127,14 +181,44 @@ reg process_1_finish = 0;
 reg process_2_finish = 0;
 reg process_3_finish = 0;
 reg process_4_finish = 0;
-//write input_r reg
-reg [31 : 0] write_input_r_count = 0;
-reg write_input_r_run_flag = 0;
-reg write_one_input_r_data_done = 0;
-//write kernel reg
-reg [31 : 0] write_kernel_count = 0;
-reg write_kernel_run_flag = 0;
-reg write_one_kernel_data_done = 0;
+reg process_5_finish = 0;
+reg process_6_finish = 0;
+reg process_7_finish = 0;
+reg process_8_finish = 0;
+reg process_9_finish = 0;
+reg process_10_finish = 0;
+//write input_0 reg
+reg [31 : 0] write_input_0_count = 0;
+reg write_input_0_run_flag = 0;
+reg write_one_input_0_data_done = 0;
+//write input_1 reg
+reg [31 : 0] write_input_1_count = 0;
+reg write_input_1_run_flag = 0;
+reg write_one_input_1_data_done = 0;
+//write input_2 reg
+reg [31 : 0] write_input_2_count = 0;
+reg write_input_2_run_flag = 0;
+reg write_one_input_2_data_done = 0;
+//write input_3 reg
+reg [31 : 0] write_input_3_count = 0;
+reg write_input_3_run_flag = 0;
+reg write_one_input_3_data_done = 0;
+//write input_4 reg
+reg [31 : 0] write_input_4_count = 0;
+reg write_input_4_run_flag = 0;
+reg write_one_input_4_data_done = 0;
+//write kernel_0 reg
+reg [31 : 0] write_kernel_0_count = 0;
+reg write_kernel_0_run_flag = 0;
+reg write_one_kernel_0_data_done = 0;
+//write kernel_1 reg
+reg [31 : 0] write_kernel_1_count = 0;
+reg write_kernel_1_run_flag = 0;
+reg write_one_kernel_1_data_done = 0;
+//write kernel_2 reg
+reg [31 : 0] write_kernel_2_count = 0;
+reg write_kernel_2_run_flag = 0;
+reg write_one_kernel_2_data_done = 0;
 //write output_r reg
 reg [31 : 0] write_output_r_count = 0;
 reg write_output_r_run_flag = 0;
@@ -161,13 +245,13 @@ assign TRAN_AXILiteS_write_start_finish = AESL_write_start_finish;
 assign TRAN_AXILiteS_done_out = AESL_done_index_reg;
 assign TRAN_AXILiteS_ready_out = AESL_ready_out_index_reg;
 assign TRAN_AXILiteS_idle_out = AESL_idle_index_reg;
-assign TRAN_AXILiteS_write_data_finish = 1 & input_r_write_data_finish & kernel_write_data_finish & output_r_write_data_finish;
+assign TRAN_AXILiteS_write_data_finish = 1 & input_0_write_data_finish & input_1_write_data_finish & input_2_write_data_finish & input_3_write_data_finish & input_4_write_data_finish & kernel_0_write_data_finish & kernel_1_write_data_finish & kernel_2_write_data_finish & output_r_write_data_finish;
 always @(TRAN_AXILiteS_ready_in or ready_initial) 
 begin
     AESL_ready_reg <= TRAN_AXILiteS_ready_in | ready_initial;
 end
 
-always @(reset or process_0_finish or process_1_finish or process_2_finish or process_3_finish or process_4_finish ) begin
+always @(reset or process_0_finish or process_1_finish or process_2_finish or process_3_finish or process_4_finish or process_5_finish or process_6_finish or process_7_finish or process_8_finish or process_9_finish or process_10_finish ) begin
     if (reset == 0) begin
         ongoing_process_number <= 0;
     end
@@ -184,17 +268,59 @@ always @(reset or process_0_finish or process_1_finish or process_2_finish or pr
             ongoing_process_number <= ongoing_process_number + 1;
     end
     else if (ongoing_process_number == 4 && process_4_finish == 1) begin
+            ongoing_process_number <= ongoing_process_number + 1;
+    end
+    else if (ongoing_process_number == 5 && process_5_finish == 1) begin
+            ongoing_process_number <= ongoing_process_number + 1;
+    end
+    else if (ongoing_process_number == 6 && process_6_finish == 1) begin
+            ongoing_process_number <= ongoing_process_number + 1;
+    end
+    else if (ongoing_process_number == 7 && process_7_finish == 1) begin
+            ongoing_process_number <= ongoing_process_number + 1;
+    end
+    else if (ongoing_process_number == 8 && process_8_finish == 1) begin
+            ongoing_process_number <= ongoing_process_number + 1;
+    end
+    else if (ongoing_process_number == 9 && process_9_finish == 1) begin
+            ongoing_process_number <= ongoing_process_number + 1;
+    end
+    else if (ongoing_process_number == 10 && process_10_finish == 1) begin
             ongoing_process_number <= 0;
     end
 end
 
-always @(TRAN_input_r) 
+always @(TRAN_input_0) 
 begin
-    reg_input_r = TRAN_input_r;
+    reg_input_0 = TRAN_input_0;
 end
-always @(TRAN_kernel) 
+always @(TRAN_input_1) 
 begin
-    reg_kernel = TRAN_kernel;
+    reg_input_1 = TRAN_input_1;
+end
+always @(TRAN_input_2) 
+begin
+    reg_input_2 = TRAN_input_2;
+end
+always @(TRAN_input_3) 
+begin
+    reg_input_3 = TRAN_input_3;
+end
+always @(TRAN_input_4) 
+begin
+    reg_input_4 = TRAN_input_4;
+end
+always @(TRAN_kernel_0) 
+begin
+    reg_kernel_0 = TRAN_kernel_0;
+end
+always @(TRAN_kernel_1) 
+begin
+    reg_kernel_1 = TRAN_kernel_1;
+end
+always @(TRAN_kernel_2) 
+begin
+    reg_kernel_2 = TRAN_kernel_2;
 end
 always @(TRAN_output_r) 
 begin
@@ -366,41 +492,41 @@ end
 
 always @(reset or posedge clk) begin
     if (reset == 0) begin
-        input_r_write_data_finish <= 0;
-        write_input_r_run_flag <= 0; 
-        write_input_r_count = 0;
-        count_operate_depth_by_bitwidth_and_depth (input_r_c_bitwidth, input_r_DEPTH, input_r_OPERATE_DEPTH);
+        input_0_write_data_finish <= 0;
+        write_input_0_run_flag <= 0; 
+        write_input_0_count = 0;
+        count_operate_depth_by_bitwidth_and_depth (input_0_c_bitwidth, input_0_DEPTH, input_0_OPERATE_DEPTH);
     end
     else begin
         if (TRAN_AXILiteS_start_in === 1) begin
-            input_r_write_data_finish <= 0;
+            input_0_write_data_finish <= 0;
         end
         if (AESL_ready_reg === 1) begin
-            write_input_r_run_flag <= 1; 
-            write_input_r_count = 0;
+            write_input_0_run_flag <= 1; 
+            write_input_0_count = 0;
         end
-        if (write_one_input_r_data_done === 1) begin
-            write_input_r_count = write_input_r_count + 1;
-            if (write_input_r_count == input_r_OPERATE_DEPTH) begin
-                write_input_r_run_flag <= 0; 
-                input_r_write_data_finish <= 1;
+        if (write_one_input_0_data_done === 1) begin
+            write_input_0_count = write_input_0_count + 1;
+            if (write_input_0_count == input_0_OPERATE_DEPTH) begin
+                write_input_0_run_flag <= 0; 
+                input_0_write_data_finish <= 1;
             end
         end
     end
 end
 
-initial begin : write_input_r
-    integer write_input_r_resp;
+initial begin : write_input_0
+    integer write_input_0_resp;
     integer process_num ;
     integer get_ack;
     integer four_byte_num;
     integer c_bitwidth;
     integer i;
     integer j;
-    reg [31 : 0] input_r_data_tmp_reg;
+    reg [31 : 0] input_0_data_tmp_reg;
     wait(reset === 1);
     @(posedge clk);
-    c_bitwidth = input_r_c_bitwidth;
+    c_bitwidth = input_0_c_bitwidth;
     process_num = 1;
     count_c_data_four_byte_num_by_bitwidth (c_bitwidth , four_byte_num) ;
     while (1) begin
@@ -408,29 +534,29 @@ initial begin : write_input_r
 
         if (ongoing_process_number === process_num && process_busy === 0 ) begin
             get_ack = 1;
-            if (write_input_r_run_flag === 1 && get_ack === 1) begin
+            if (write_input_0_run_flag === 1 && get_ack === 1) begin
                 process_busy = 1;
-                //write input_r data 
+                //write input_0 data 
                 for (i = 0 ; i < four_byte_num ; i = i+1) begin
-                    if (input_r_c_bitwidth < 32) begin
-                        input_r_data_tmp_reg = reg_input_r;
+                    if (input_0_c_bitwidth < 32) begin
+                        input_0_data_tmp_reg = reg_input_0;
                     end
                     else begin
                         for (j=0 ; j<32 ; j = j + 1) begin
-                            if (i*32 + j < input_r_c_bitwidth) begin
-                                input_r_data_tmp_reg[j] = reg_input_r[i*32 + j];
+                            if (i*32 + j < input_0_c_bitwidth) begin
+                                input_0_data_tmp_reg[j] = reg_input_0[i*32 + j];
                             end
                             else begin
-                                input_r_data_tmp_reg[j] = 0;
+                                input_0_data_tmp_reg[j] = 0;
                             end
                         end
                     end
-                    write (input_r_data_in_addr + write_input_r_count * four_byte_num * 4 + i * 4, input_r_data_tmp_reg, write_input_r_resp);
+                    write (input_0_data_in_addr + write_input_0_count * four_byte_num * 4 + i * 4, input_0_data_tmp_reg, write_input_0_resp);
                 end
                 process_busy = 0;
-                write_one_input_r_data_done <= 1;
+                write_one_input_0_data_done <= 1;
                 @(posedge clk);
-                write_one_input_r_data_done <= 0;
+                write_one_input_0_data_done <= 0;
             end   
             process_1_finish <= 1;
         end
@@ -439,41 +565,41 @@ initial begin : write_input_r
 end
 always @(reset or posedge clk) begin
     if (reset == 0) begin
-        kernel_write_data_finish <= 0;
-        write_kernel_run_flag <= 0; 
-        write_kernel_count = 0;
-        count_operate_depth_by_bitwidth_and_depth (kernel_c_bitwidth, kernel_DEPTH, kernel_OPERATE_DEPTH);
+        input_1_write_data_finish <= 0;
+        write_input_1_run_flag <= 0; 
+        write_input_1_count = 0;
+        count_operate_depth_by_bitwidth_and_depth (input_1_c_bitwidth, input_1_DEPTH, input_1_OPERATE_DEPTH);
     end
     else begin
         if (TRAN_AXILiteS_start_in === 1) begin
-            kernel_write_data_finish <= 0;
+            input_1_write_data_finish <= 0;
         end
         if (AESL_ready_reg === 1) begin
-            write_kernel_run_flag <= 1; 
-            write_kernel_count = 0;
+            write_input_1_run_flag <= 1; 
+            write_input_1_count = 0;
         end
-        if (write_one_kernel_data_done === 1) begin
-            write_kernel_count = write_kernel_count + 1;
-            if (write_kernel_count == kernel_OPERATE_DEPTH) begin
-                write_kernel_run_flag <= 0; 
-                kernel_write_data_finish <= 1;
+        if (write_one_input_1_data_done === 1) begin
+            write_input_1_count = write_input_1_count + 1;
+            if (write_input_1_count == input_1_OPERATE_DEPTH) begin
+                write_input_1_run_flag <= 0; 
+                input_1_write_data_finish <= 1;
             end
         end
     end
 end
 
-initial begin : write_kernel
-    integer write_kernel_resp;
+initial begin : write_input_1
+    integer write_input_1_resp;
     integer process_num ;
     integer get_ack;
     integer four_byte_num;
     integer c_bitwidth;
     integer i;
     integer j;
-    reg [31 : 0] kernel_data_tmp_reg;
+    reg [31 : 0] input_1_data_tmp_reg;
     wait(reset === 1);
     @(posedge clk);
-    c_bitwidth = kernel_c_bitwidth;
+    c_bitwidth = input_1_c_bitwidth;
     process_num = 2;
     count_c_data_four_byte_num_by_bitwidth (c_bitwidth , four_byte_num) ;
     while (1) begin
@@ -481,31 +607,469 @@ initial begin : write_kernel
 
         if (ongoing_process_number === process_num && process_busy === 0 ) begin
             get_ack = 1;
-            if (write_kernel_run_flag === 1 && get_ack === 1) begin
+            if (write_input_1_run_flag === 1 && get_ack === 1) begin
                 process_busy = 1;
-                //write kernel data 
+                //write input_1 data 
                 for (i = 0 ; i < four_byte_num ; i = i+1) begin
-                    if (kernel_c_bitwidth < 32) begin
-                        kernel_data_tmp_reg = reg_kernel;
+                    if (input_1_c_bitwidth < 32) begin
+                        input_1_data_tmp_reg = reg_input_1;
                     end
                     else begin
                         for (j=0 ; j<32 ; j = j + 1) begin
-                            if (i*32 + j < kernel_c_bitwidth) begin
-                                kernel_data_tmp_reg[j] = reg_kernel[i*32 + j];
+                            if (i*32 + j < input_1_c_bitwidth) begin
+                                input_1_data_tmp_reg[j] = reg_input_1[i*32 + j];
                             end
                             else begin
-                                kernel_data_tmp_reg[j] = 0;
+                                input_1_data_tmp_reg[j] = 0;
                             end
                         end
                     end
-                    write (kernel_data_in_addr + write_kernel_count * four_byte_num * 4 + i * 4, kernel_data_tmp_reg, write_kernel_resp);
+                    write (input_1_data_in_addr + write_input_1_count * four_byte_num * 4 + i * 4, input_1_data_tmp_reg, write_input_1_resp);
                 end
                 process_busy = 0;
-                write_one_kernel_data_done <= 1;
+                write_one_input_1_data_done <= 1;
                 @(posedge clk);
-                write_one_kernel_data_done <= 0;
+                write_one_input_1_data_done <= 0;
             end   
             process_2_finish <= 1;
+        end
+        @(posedge clk);
+    end    
+end
+always @(reset or posedge clk) begin
+    if (reset == 0) begin
+        input_2_write_data_finish <= 0;
+        write_input_2_run_flag <= 0; 
+        write_input_2_count = 0;
+        count_operate_depth_by_bitwidth_and_depth (input_2_c_bitwidth, input_2_DEPTH, input_2_OPERATE_DEPTH);
+    end
+    else begin
+        if (TRAN_AXILiteS_start_in === 1) begin
+            input_2_write_data_finish <= 0;
+        end
+        if (AESL_ready_reg === 1) begin
+            write_input_2_run_flag <= 1; 
+            write_input_2_count = 0;
+        end
+        if (write_one_input_2_data_done === 1) begin
+            write_input_2_count = write_input_2_count + 1;
+            if (write_input_2_count == input_2_OPERATE_DEPTH) begin
+                write_input_2_run_flag <= 0; 
+                input_2_write_data_finish <= 1;
+            end
+        end
+    end
+end
+
+initial begin : write_input_2
+    integer write_input_2_resp;
+    integer process_num ;
+    integer get_ack;
+    integer four_byte_num;
+    integer c_bitwidth;
+    integer i;
+    integer j;
+    reg [31 : 0] input_2_data_tmp_reg;
+    wait(reset === 1);
+    @(posedge clk);
+    c_bitwidth = input_2_c_bitwidth;
+    process_num = 3;
+    count_c_data_four_byte_num_by_bitwidth (c_bitwidth , four_byte_num) ;
+    while (1) begin
+        process_3_finish <= 0;
+
+        if (ongoing_process_number === process_num && process_busy === 0 ) begin
+            get_ack = 1;
+            if (write_input_2_run_flag === 1 && get_ack === 1) begin
+                process_busy = 1;
+                //write input_2 data 
+                for (i = 0 ; i < four_byte_num ; i = i+1) begin
+                    if (input_2_c_bitwidth < 32) begin
+                        input_2_data_tmp_reg = reg_input_2;
+                    end
+                    else begin
+                        for (j=0 ; j<32 ; j = j + 1) begin
+                            if (i*32 + j < input_2_c_bitwidth) begin
+                                input_2_data_tmp_reg[j] = reg_input_2[i*32 + j];
+                            end
+                            else begin
+                                input_2_data_tmp_reg[j] = 0;
+                            end
+                        end
+                    end
+                    write (input_2_data_in_addr + write_input_2_count * four_byte_num * 4 + i * 4, input_2_data_tmp_reg, write_input_2_resp);
+                end
+                process_busy = 0;
+                write_one_input_2_data_done <= 1;
+                @(posedge clk);
+                write_one_input_2_data_done <= 0;
+            end   
+            process_3_finish <= 1;
+        end
+        @(posedge clk);
+    end    
+end
+always @(reset or posedge clk) begin
+    if (reset == 0) begin
+        input_3_write_data_finish <= 0;
+        write_input_3_run_flag <= 0; 
+        write_input_3_count = 0;
+        count_operate_depth_by_bitwidth_and_depth (input_3_c_bitwidth, input_3_DEPTH, input_3_OPERATE_DEPTH);
+    end
+    else begin
+        if (TRAN_AXILiteS_start_in === 1) begin
+            input_3_write_data_finish <= 0;
+        end
+        if (AESL_ready_reg === 1) begin
+            write_input_3_run_flag <= 1; 
+            write_input_3_count = 0;
+        end
+        if (write_one_input_3_data_done === 1) begin
+            write_input_3_count = write_input_3_count + 1;
+            if (write_input_3_count == input_3_OPERATE_DEPTH) begin
+                write_input_3_run_flag <= 0; 
+                input_3_write_data_finish <= 1;
+            end
+        end
+    end
+end
+
+initial begin : write_input_3
+    integer write_input_3_resp;
+    integer process_num ;
+    integer get_ack;
+    integer four_byte_num;
+    integer c_bitwidth;
+    integer i;
+    integer j;
+    reg [31 : 0] input_3_data_tmp_reg;
+    wait(reset === 1);
+    @(posedge clk);
+    c_bitwidth = input_3_c_bitwidth;
+    process_num = 4;
+    count_c_data_four_byte_num_by_bitwidth (c_bitwidth , four_byte_num) ;
+    while (1) begin
+        process_4_finish <= 0;
+
+        if (ongoing_process_number === process_num && process_busy === 0 ) begin
+            get_ack = 1;
+            if (write_input_3_run_flag === 1 && get_ack === 1) begin
+                process_busy = 1;
+                //write input_3 data 
+                for (i = 0 ; i < four_byte_num ; i = i+1) begin
+                    if (input_3_c_bitwidth < 32) begin
+                        input_3_data_tmp_reg = reg_input_3;
+                    end
+                    else begin
+                        for (j=0 ; j<32 ; j = j + 1) begin
+                            if (i*32 + j < input_3_c_bitwidth) begin
+                                input_3_data_tmp_reg[j] = reg_input_3[i*32 + j];
+                            end
+                            else begin
+                                input_3_data_tmp_reg[j] = 0;
+                            end
+                        end
+                    end
+                    write (input_3_data_in_addr + write_input_3_count * four_byte_num * 4 + i * 4, input_3_data_tmp_reg, write_input_3_resp);
+                end
+                process_busy = 0;
+                write_one_input_3_data_done <= 1;
+                @(posedge clk);
+                write_one_input_3_data_done <= 0;
+            end   
+            process_4_finish <= 1;
+        end
+        @(posedge clk);
+    end    
+end
+always @(reset or posedge clk) begin
+    if (reset == 0) begin
+        input_4_write_data_finish <= 0;
+        write_input_4_run_flag <= 0; 
+        write_input_4_count = 0;
+        count_operate_depth_by_bitwidth_and_depth (input_4_c_bitwidth, input_4_DEPTH, input_4_OPERATE_DEPTH);
+    end
+    else begin
+        if (TRAN_AXILiteS_start_in === 1) begin
+            input_4_write_data_finish <= 0;
+        end
+        if (AESL_ready_reg === 1) begin
+            write_input_4_run_flag <= 1; 
+            write_input_4_count = 0;
+        end
+        if (write_one_input_4_data_done === 1) begin
+            write_input_4_count = write_input_4_count + 1;
+            if (write_input_4_count == input_4_OPERATE_DEPTH) begin
+                write_input_4_run_flag <= 0; 
+                input_4_write_data_finish <= 1;
+            end
+        end
+    end
+end
+
+initial begin : write_input_4
+    integer write_input_4_resp;
+    integer process_num ;
+    integer get_ack;
+    integer four_byte_num;
+    integer c_bitwidth;
+    integer i;
+    integer j;
+    reg [31 : 0] input_4_data_tmp_reg;
+    wait(reset === 1);
+    @(posedge clk);
+    c_bitwidth = input_4_c_bitwidth;
+    process_num = 5;
+    count_c_data_four_byte_num_by_bitwidth (c_bitwidth , four_byte_num) ;
+    while (1) begin
+        process_5_finish <= 0;
+
+        if (ongoing_process_number === process_num && process_busy === 0 ) begin
+            get_ack = 1;
+            if (write_input_4_run_flag === 1 && get_ack === 1) begin
+                process_busy = 1;
+                //write input_4 data 
+                for (i = 0 ; i < four_byte_num ; i = i+1) begin
+                    if (input_4_c_bitwidth < 32) begin
+                        input_4_data_tmp_reg = reg_input_4;
+                    end
+                    else begin
+                        for (j=0 ; j<32 ; j = j + 1) begin
+                            if (i*32 + j < input_4_c_bitwidth) begin
+                                input_4_data_tmp_reg[j] = reg_input_4[i*32 + j];
+                            end
+                            else begin
+                                input_4_data_tmp_reg[j] = 0;
+                            end
+                        end
+                    end
+                    write (input_4_data_in_addr + write_input_4_count * four_byte_num * 4 + i * 4, input_4_data_tmp_reg, write_input_4_resp);
+                end
+                process_busy = 0;
+                write_one_input_4_data_done <= 1;
+                @(posedge clk);
+                write_one_input_4_data_done <= 0;
+            end   
+            process_5_finish <= 1;
+        end
+        @(posedge clk);
+    end    
+end
+always @(reset or posedge clk) begin
+    if (reset == 0) begin
+        kernel_0_write_data_finish <= 0;
+        write_kernel_0_run_flag <= 0; 
+        write_kernel_0_count = 0;
+        count_operate_depth_by_bitwidth_and_depth (kernel_0_c_bitwidth, kernel_0_DEPTH, kernel_0_OPERATE_DEPTH);
+    end
+    else begin
+        if (TRAN_AXILiteS_start_in === 1) begin
+            kernel_0_write_data_finish <= 0;
+        end
+        if (AESL_ready_reg === 1) begin
+            write_kernel_0_run_flag <= 1; 
+            write_kernel_0_count = 0;
+        end
+        if (write_one_kernel_0_data_done === 1) begin
+            write_kernel_0_count = write_kernel_0_count + 1;
+            if (write_kernel_0_count == kernel_0_OPERATE_DEPTH) begin
+                write_kernel_0_run_flag <= 0; 
+                kernel_0_write_data_finish <= 1;
+            end
+        end
+    end
+end
+
+initial begin : write_kernel_0
+    integer write_kernel_0_resp;
+    integer process_num ;
+    integer get_ack;
+    integer four_byte_num;
+    integer c_bitwidth;
+    integer i;
+    integer j;
+    reg [31 : 0] kernel_0_data_tmp_reg;
+    wait(reset === 1);
+    @(posedge clk);
+    c_bitwidth = kernel_0_c_bitwidth;
+    process_num = 6;
+    count_c_data_four_byte_num_by_bitwidth (c_bitwidth , four_byte_num) ;
+    while (1) begin
+        process_6_finish <= 0;
+
+        if (ongoing_process_number === process_num && process_busy === 0 ) begin
+            get_ack = 1;
+            if (write_kernel_0_run_flag === 1 && get_ack === 1) begin
+                process_busy = 1;
+                //write kernel_0 data 
+                for (i = 0 ; i < four_byte_num ; i = i+1) begin
+                    if (kernel_0_c_bitwidth < 32) begin
+                        kernel_0_data_tmp_reg = reg_kernel_0;
+                    end
+                    else begin
+                        for (j=0 ; j<32 ; j = j + 1) begin
+                            if (i*32 + j < kernel_0_c_bitwidth) begin
+                                kernel_0_data_tmp_reg[j] = reg_kernel_0[i*32 + j];
+                            end
+                            else begin
+                                kernel_0_data_tmp_reg[j] = 0;
+                            end
+                        end
+                    end
+                    write (kernel_0_data_in_addr + write_kernel_0_count * four_byte_num * 4 + i * 4, kernel_0_data_tmp_reg, write_kernel_0_resp);
+                end
+                process_busy = 0;
+                write_one_kernel_0_data_done <= 1;
+                @(posedge clk);
+                write_one_kernel_0_data_done <= 0;
+            end   
+            process_6_finish <= 1;
+        end
+        @(posedge clk);
+    end    
+end
+always @(reset or posedge clk) begin
+    if (reset == 0) begin
+        kernel_1_write_data_finish <= 0;
+        write_kernel_1_run_flag <= 0; 
+        write_kernel_1_count = 0;
+        count_operate_depth_by_bitwidth_and_depth (kernel_1_c_bitwidth, kernel_1_DEPTH, kernel_1_OPERATE_DEPTH);
+    end
+    else begin
+        if (TRAN_AXILiteS_start_in === 1) begin
+            kernel_1_write_data_finish <= 0;
+        end
+        if (AESL_ready_reg === 1) begin
+            write_kernel_1_run_flag <= 1; 
+            write_kernel_1_count = 0;
+        end
+        if (write_one_kernel_1_data_done === 1) begin
+            write_kernel_1_count = write_kernel_1_count + 1;
+            if (write_kernel_1_count == kernel_1_OPERATE_DEPTH) begin
+                write_kernel_1_run_flag <= 0; 
+                kernel_1_write_data_finish <= 1;
+            end
+        end
+    end
+end
+
+initial begin : write_kernel_1
+    integer write_kernel_1_resp;
+    integer process_num ;
+    integer get_ack;
+    integer four_byte_num;
+    integer c_bitwidth;
+    integer i;
+    integer j;
+    reg [31 : 0] kernel_1_data_tmp_reg;
+    wait(reset === 1);
+    @(posedge clk);
+    c_bitwidth = kernel_1_c_bitwidth;
+    process_num = 7;
+    count_c_data_four_byte_num_by_bitwidth (c_bitwidth , four_byte_num) ;
+    while (1) begin
+        process_7_finish <= 0;
+
+        if (ongoing_process_number === process_num && process_busy === 0 ) begin
+            get_ack = 1;
+            if (write_kernel_1_run_flag === 1 && get_ack === 1) begin
+                process_busy = 1;
+                //write kernel_1 data 
+                for (i = 0 ; i < four_byte_num ; i = i+1) begin
+                    if (kernel_1_c_bitwidth < 32) begin
+                        kernel_1_data_tmp_reg = reg_kernel_1;
+                    end
+                    else begin
+                        for (j=0 ; j<32 ; j = j + 1) begin
+                            if (i*32 + j < kernel_1_c_bitwidth) begin
+                                kernel_1_data_tmp_reg[j] = reg_kernel_1[i*32 + j];
+                            end
+                            else begin
+                                kernel_1_data_tmp_reg[j] = 0;
+                            end
+                        end
+                    end
+                    write (kernel_1_data_in_addr + write_kernel_1_count * four_byte_num * 4 + i * 4, kernel_1_data_tmp_reg, write_kernel_1_resp);
+                end
+                process_busy = 0;
+                write_one_kernel_1_data_done <= 1;
+                @(posedge clk);
+                write_one_kernel_1_data_done <= 0;
+            end   
+            process_7_finish <= 1;
+        end
+        @(posedge clk);
+    end    
+end
+always @(reset or posedge clk) begin
+    if (reset == 0) begin
+        kernel_2_write_data_finish <= 0;
+        write_kernel_2_run_flag <= 0; 
+        write_kernel_2_count = 0;
+        count_operate_depth_by_bitwidth_and_depth (kernel_2_c_bitwidth, kernel_2_DEPTH, kernel_2_OPERATE_DEPTH);
+    end
+    else begin
+        if (TRAN_AXILiteS_start_in === 1) begin
+            kernel_2_write_data_finish <= 0;
+        end
+        if (AESL_ready_reg === 1) begin
+            write_kernel_2_run_flag <= 1; 
+            write_kernel_2_count = 0;
+        end
+        if (write_one_kernel_2_data_done === 1) begin
+            write_kernel_2_count = write_kernel_2_count + 1;
+            if (write_kernel_2_count == kernel_2_OPERATE_DEPTH) begin
+                write_kernel_2_run_flag <= 0; 
+                kernel_2_write_data_finish <= 1;
+            end
+        end
+    end
+end
+
+initial begin : write_kernel_2
+    integer write_kernel_2_resp;
+    integer process_num ;
+    integer get_ack;
+    integer four_byte_num;
+    integer c_bitwidth;
+    integer i;
+    integer j;
+    reg [31 : 0] kernel_2_data_tmp_reg;
+    wait(reset === 1);
+    @(posedge clk);
+    c_bitwidth = kernel_2_c_bitwidth;
+    process_num = 8;
+    count_c_data_four_byte_num_by_bitwidth (c_bitwidth , four_byte_num) ;
+    while (1) begin
+        process_8_finish <= 0;
+
+        if (ongoing_process_number === process_num && process_busy === 0 ) begin
+            get_ack = 1;
+            if (write_kernel_2_run_flag === 1 && get_ack === 1) begin
+                process_busy = 1;
+                //write kernel_2 data 
+                for (i = 0 ; i < four_byte_num ; i = i+1) begin
+                    if (kernel_2_c_bitwidth < 32) begin
+                        kernel_2_data_tmp_reg = reg_kernel_2;
+                    end
+                    else begin
+                        for (j=0 ; j<32 ; j = j + 1) begin
+                            if (i*32 + j < kernel_2_c_bitwidth) begin
+                                kernel_2_data_tmp_reg[j] = reg_kernel_2[i*32 + j];
+                            end
+                            else begin
+                                kernel_2_data_tmp_reg[j] = 0;
+                            end
+                        end
+                    end
+                    write (kernel_2_data_in_addr + write_kernel_2_count * four_byte_num * 4 + i * 4, kernel_2_data_tmp_reg, write_kernel_2_resp);
+                end
+                process_busy = 0;
+                write_one_kernel_2_data_done <= 1;
+                @(posedge clk);
+                write_one_kernel_2_data_done <= 0;
+            end   
+            process_8_finish <= 1;
         end
         @(posedge clk);
     end    
@@ -547,10 +1111,10 @@ initial begin : write_output_r
     wait(reset === 1);
     @(posedge clk);
     c_bitwidth = output_r_c_bitwidth;
-    process_num = 3;
+    process_num = 9;
     count_c_data_four_byte_num_by_bitwidth (c_bitwidth , four_byte_num) ;
     while (1) begin
-        process_3_finish <= 0;
+        process_9_finish <= 0;
 
         if (ongoing_process_number === process_num && process_busy === 0 ) begin
             get_ack = 1;
@@ -578,7 +1142,7 @@ initial begin : write_output_r
                 @(posedge clk);
                 write_one_output_r_data_done <= 0;
             end   
-            process_3_finish <= 1;
+            process_9_finish <= 1;
         end
         @(posedge clk);
     end    
@@ -609,9 +1173,9 @@ initial begin : write_start
     integer write_start_resp;
     wait(reset === 1);
     @(posedge clk);
-    process_num = 4;
+    process_num = 10;
     while (1) begin
-        process_4_finish = 0;
+        process_10_finish = 0;
         if (ongoing_process_number === process_num && process_busy === 0 ) begin
             if (write_start_run_flag === 1) begin
                 process_busy = 1;
@@ -623,7 +1187,7 @@ initial begin : write_start
                 @(posedge clk);
                 AESL_write_start_finish <= 0;
             end
-            process_4_finish <= 1;
+            process_10_finish <= 1;
         end 
         @(posedge clk);
     end

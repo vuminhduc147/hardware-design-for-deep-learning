@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message severity="INFO" prefix="[COSIM 212-47]" key="COSIM_TCL_47_1115" tag="" content="Using XSIM for RTL simulation."/>
+	<Message severity="INFO" prefix="[COSIM 212-14]" key="COSIM_TCL_14_1084" tag="" content="Instrumenting C test bench ..."/>
+	<Message severity="WARNING" prefix="[COSIM 212-369]" key="COSIM_TCL_369_1240" tag="COSIM" content="AXI_master port &apos;input&apos; has a depth of &apos;5&apos;. Insufficient depth may result in simulation mismatch or freeze."/>
+	<Message severity="WARNING" prefix="[COSIM 212-369]" key="COSIM_TCL_369_1240" tag="COSIM" content="AXI_master port &apos;kernel&apos; has a depth of &apos;3&apos;. Insufficient depth may result in simulation mismatch or freeze."/>
+	<Message severity="WARNING" prefix="[COSIM 212-369]" key="COSIM_TCL_369_1240" tag="COSIM" content="AXI_master port &apos;gmem2&apos; has a depth of &apos;9&apos;. Insufficient depth may result in simulation mismatch or freeze."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/apcc.exe&apos;"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;Admin&apos; on host &apos;desktop-ftkp38h&apos; (Windows NT_amd64 version 6.2) on Wed Dec 18 23:05:38 +0700 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/Admin/Downloads/btl/final/solution1/sim/wrapc&apos;"/>
+	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
+	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1427" tag="" content="Running &apos;C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/apcc.exe&apos;"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1428" tag="" content="For user &apos;Admin&apos; on host &apos;desktop-ftkp38h&apos; (Windows NT_amd64 version 6.2) on Wed Dec 18 23:05:41 +0700 2024"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1430" tag="" content="In directory &apos;C:/Users/Admin/Downloads/btl/final/solution1/sim/wrapc&apos;"/>
+	<Message severity="INFO" prefix="[APCC 202-3]" key="APCC_3_1610" tag="" content="Tmp directory is apcc_db"/>
+	<Message severity="INFO" prefix="[APCC 202-1]" key="APCC_1_1611" tag="" content="APCC is done."/>
+	<Message severity="INFO" prefix="[COSIM 212-302]" key="COSIM_TCL_302_1177" tag="" content="Starting C TB testing ..."/>
+	<Message severity="INFO" prefix="[COSIM 212-333]" key="COSIM_TCL_333_1204" tag="" content="Generating C post check test bench ..."/>
+	<Message severity="INFO" prefix="[COSIM 212-12]" key="COSIM_TCL_12_1082" tag="" content="Generating RTL test bench ..."/>
+	<Message severity="INFO" prefix="[COSIM 212-323]" key="COSIM_TCL_323_1195" tag="" content="Starting verilog simulation."/>
+	<Message severity="INFO" prefix="[COSIM 212-15]" key="COSIM_TCL_15_1085" tag="" content="Starting XSIM ..."/>
+</Messages>

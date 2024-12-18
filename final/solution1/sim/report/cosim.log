@@ -1,13 +1,13 @@
 INFO: [COSIM-47] Using XSIM for RTL simulation.
 INFO: [COSIM-14] Instrumenting C test bench ...
-WARNING: [COSIM-369] AXI_master port 'gmem0' has a depth of '25'. Insufficient depth may result in simulation mismatch or freeze.
-WARNING: [COSIM-369] AXI_master port 'gmem1' has a depth of '9'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM-369] AXI_master port 'input' has a depth of '5'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM-369] AXI_master port 'kernel' has a depth of '3'. Insufficient depth may result in simulation mismatch or freeze.
 WARNING: [COSIM-369] AXI_master port 'gmem2' has a depth of '9'. Insufficient depth may result in simulation mismatch or freeze.
    Build using "C:/Xilinx/Vivado/2018.3/msys64/mingw64/bin/g++"
    Compiling apatb_conv2D.cpp
    Compiling (apcc) testbench.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'Admin' on host 'desktop-ftkp38h' (Windows NT_amd64 version 6.2) on Wed Dec 18 10:59:57 +0700 2024
+INFO: [HLS 200-10] For user 'Admin' on host 'desktop-ftkp38h' (Windows NT_amd64 version 6.2) on Wed Dec 18 23:05:38 +0700 2024
 INFO: [HLS 200-10] In directory 'C:/Users/Admin/Downloads/btl/final/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'
@@ -15,7 +15,7 @@ INFO: [APCC 202-3] Tmp directory is apcc_db
 INFO: [APCC 202-1] APCC is done.
    Compiling (apcc) conv2D.c_pre.c.tb.c
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/apcc.exe'
-INFO: [HLS 200-10] For user 'Admin' on host 'desktop-ftkp38h' (Windows NT_amd64 version 6.2) on Wed Dec 18 11:00:02 +0700 2024
+INFO: [HLS 200-10] For user 'Admin' on host 'desktop-ftkp38h' (Windows NT_amd64 version 6.2) on Wed Dec 18 23:05:41 +0700 2024
 INFO: [HLS 200-10] In directory 'C:/Users/Admin/Downloads/btl/final/solution1/sim/wrapc'
 clang: warning: argument unused during compilation: '-fno-builtin-isinf'
 clang: warning: argument unused during compilation: '-fno-builtin-isnan'

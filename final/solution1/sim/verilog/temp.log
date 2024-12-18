@@ -121,7 +121,7 @@ Built simulation snapshot conv2D
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
 source C:/Users/Admin/Downloads/btl/final/solution1/sim/verilog/xsim.dir/conv2D/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Wed Dec 18 11:00:40 2024...
+INFO: [Common 17-206] Exiting Webtalk at Wed Dec 18 23:06:10 2024...
 
 ****** xsim v2018.3 (64-bit)
   **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018

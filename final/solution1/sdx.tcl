@@ -1,5 +1,5 @@
 # ==============================================================
-# File generated on Wed Dec 18 12:19:52 +0700 2024
+# File generated on Wed Dec 18 22:56:15 +0700 2024
 # Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
@@ -14,10 +14,10 @@ config_sdx -optimization_level=0
 config_sdx -target=xocc
 config_schedule -effort=medium
 config_schedule -enable_dsp_full_reg=1
-config_export -vivado_phys_opt=none
 config_export -format=ip_catalog
 config_export -rtl=vhdl
 config_export -version=0.0.0
+config_export -vivado_phys_opt=none
 config_export -xo=C:/Users/Admin/Downloads/btl/conv2D.xo
 config_compile -name_max_length=256
 config_compile -pipeline_loops=64

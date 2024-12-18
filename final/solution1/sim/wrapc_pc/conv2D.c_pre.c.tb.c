@@ -1,5 +1,5 @@
 // ==============================================================
-// File generated on Wed Dec 18 10:59:51 +0700 2024
+// File generated on Wed Dec 18 23:05:34 +0700 2024
 // Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
 // SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 // IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
@@ -532,6 +532,15 @@ void conv2D(int input[5][5],
 #pragma HLS INTERFACE m_axi port=kernel offset=slave bundle=gmem1
 #pragma HLS INTERFACE m_axi port=output offset=slave bundle=gmem2
 #pragma HLS PIPELINE
+
+
+#pragma HLS RESOURCE variable=input core=RAM_2P_BRAM
+#pragma HLS RESOURCE variable=kernel core=RAM_2P_BRAM
+#pragma HLS RESOURCE variable=output core=RAM_2P_BRAM
+
+
+#pragma HLS ARRAY_PARTITION variable=input complete dim=2
+#pragma HLS ARRAY_PARTITION variable=kernel complete dim=2
 
 
  for (int i = 0; i <= 5 - 3; i++) {

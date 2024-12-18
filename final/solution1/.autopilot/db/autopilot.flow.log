@@ -1,4 +1,4 @@
-INFO-FLOW: Workspace C:/Users/Admin/Downloads/btl/final/solution1 opened at Wed Dec 18 12:19:40 +0700 2024
+INFO-FLOW: Workspace C:/Users/Admin/Downloads/btl/final/solution1 opened at Wed Dec 18 22:56:02 +0700 2024
 Execute     config_clock -quiet -name default -period 10 -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 Execute     config_clock -quiet -name default -uncertainty 2.7 -unit % 
@@ -49,10 +49,10 @@ Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/dds
 Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/util.gen 
 Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.gen 
 Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.gen 
-Command         ap_source done; 0.116 sec.
+Command         ap_source done; 0.104 sec.
 Execute         source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.gen 
-Command       ap_source done; 0.118 sec.
-Command     ap_source done; 0.118 sec.
+Command       ap_source done; 0.105 sec.
+Command     ap_source done; 0.105 sec.
 Execute     open_platform DefaultPlatform 
 Execute     import_lib C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6 
 Execute       source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv7.lib 
@@ -112,10 +112,10 @@ INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncert
 Execute       set_clock_uncertainty 27% 
 Execute     config_schedule -effort=medium 
 Execute     config_schedule -enable_dsp_full_reg=1 
-Execute     config_export -vivado_phys_opt=none 
 Execute     config_export -format=ip_catalog 
 Execute     config_export -rtl=vhdl 
 Execute     config_export -version=0.0.0 
+Execute     config_export -vivado_phys_opt=none 
 Execute     config_export -xo=C:/Users/Admin/Downloads/btl/conv2D.xo 
 Execute     config_compile -name_max_length=256 
 INFO: [XFORM 203-1161] The maximum of name length is set into 256.
@@ -126,7 +126,7 @@ Execute     config_rtl -auto_prefix=1
 Execute     config_rtl -enable_maxiConservative=1 
 Execute     config_rtl -register_reset_num=3 
 Execute     config_interface -m_axi_addr64=1 
-Command   open_solution done; 0.255 sec.
+Command   open_solution done; 0.226 sec.
 Execute   set_part xc7z020clg484-1 
 Execute     add_library xilinx/zynq/zynq:xc7z020:clg484:-1 
 Execute       get_default_platform 
@@ -207,14 +207,15 @@ INFO-FLOW: Running: GCC PP
 INFO-FLOW: Source preprocessing
 Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.3/msys" -hls  -fno-exceptions  -D__llvm__  -E "conv2D.c"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.3/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl=  -o "C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pp.0.c" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.3/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.3/msys -hls -fno-exceptions -D__llvm__ -E conv2D.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.3/common/technology/autopilot -I C:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl= -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pp.0.c
-Command       clang done; 0.664 sec.
+Command       clang done; 0.627 sec.
 Execute       tidy_31 xilinx-xfmat-array-geometry C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pp.0.c std=gnu89 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.388 sec.
 INFO-FLOW: Syntax Checking before pre-processing...
 Execute       clang -syntaxcheck -src C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pp.0.c  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.3/msys" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.3/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl=  "C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pp.0.c"  -o "C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/useless.bc"  
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.3/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.3/msys -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.3/common/technology/autopilot -I C:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl= C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pp.0.c -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/useless.bc
-Command       clang done; 0.644 sec.
-INFO-FLOW: Done: GCC PP time: 1.4 seconds per iteration
+Command       clang done; 0.624 sec.
+INFO-FLOW: Done: GCC PP time: 1.6 seconds per iteration
 INFO-FLOW: Setting directive 'PIPELINE' 
 INFO-FLOW: Setting directive 'PIPELINE' 
 INFO-FLOW: Setting directive 'PIPELINE' 
@@ -231,11 +232,13 @@ Execute       tidy_31 xilinx-directive2pragma C:/Users/Admin/Downloads/btl/final
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/all.directive.json -quiet -fix-errors C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
 Execute       get_config_dataflow -strict_mode 
 Execute       ap_eval exec -ignorestderr C:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/xilinx-dataflow-lawyer.conv2D.pp.0.c.diag.yml C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pp.0.c -- -std=gnu99 -fhls -ferror-limit=0 -fstrict-dataflow > C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/xilinx-dataflow-lawyer.conv2D.pp.0.c.out.log 2> C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/xilinx-dataflow-lawyer.conv2D.pp.0.c.err.log 
+Command       ap_eval done; 0.265 sec.
 Execute       tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pp.0.c std=gnu89 
 Execute         ap_eval exec -ignorestderr C:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/tidy-3.1.conv2D.pp.0.c.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0 > C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/tidy-3.1.conv2D.pp.0.c.out.log 2> C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/tidy-3.1.conv2D.pp.0.c.err.log 
 Execute         ap_eval exec -ignorestderr C:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0 > C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/xilinx-legacy-rewriter.conv2D.pp.0.c.out.log 2> C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/xilinx-legacy-rewriter.conv2D.pp.0.c.err.log 
-Command       tidy_31 done; 0.128 sec.
-INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 0.2 seconds per iteration
+Command         ap_eval done; 0.716 sec.
+Command       tidy_31 done; 0.788 sec.
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 1.1 seconds per iteration
 INFO-FLOW: Pragma Handling...
 Execute       tidy_31 xilinx-ssdm-intrinsics-arguments C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pragma.1.c std=gnu89 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pragma.1.c -- -std=gnu89 -fhls -ferror-limit=0
@@ -243,12 +246,12 @@ Execute       get_default_platform
 INFO-FLOW: Processing labels
 Execute       clang -src C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pragma.2.c  -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.3/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pragma.2.c"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89  -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.3/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.bc" 
 INFO-FLOW: exec C:/Xilinx/Vivado/2018.3/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.3/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.pragma.2.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.3/common/technology/autopilot -I C:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.bc
-Command       clang done; 0.65 sec.
+Command       clang done; 0.622 sec.
 INFO-FLOW: Linking Debug ...
 Execute       llvm-ld C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.g.bc -hls-opt -except-internalize conv2D -LC:/Xilinx/Vivado/2018.3/win64/lib -lhlsm -lhlsmc++ -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.g 
-Command       llvm-ld done; 0.762 sec.
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 104.551 ; gain = 19.781
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 104.551 ; gain = 19.781
+Command       llvm-ld done; 1.027 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 104.957 ; gain = 19.953
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 104.957 ; gain = 19.953
 Execute       get_config_sdx -target 
 Execute       ::config_rtl 
 Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
@@ -256,16 +259,16 @@ Execute         cleanup_all_models
 INFO: [HLS 200-10] Starting code transformations ...
 Execute         transform -promote-dbg-pointer C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.pp.bc -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.pp.0.bc -f 
 Execute         llvm-ld C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.pp.0.bc -disable-opt -LC:/Xilinx/Vivado/2018.3/win64/lib -lfloatconversion -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.g.0 
-Command         llvm-ld done; 0.345 sec.
+Command         llvm-ld done; 0.32 sec.
 INFO-FLOW: Running Standard Transforms...
 Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -lower-blackbox -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top conv2D -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.g.0.bc -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 106.004 ; gain = 21.234
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 106.000 ; gain = 20.996
 INFO: [HLS 200-10] Checking synthesizability ...
 INFO-FLOW: Checking Synthesizability 1/2..
 Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.g.1.bc -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.g.2.prechk.bc -f 
 INFO-FLOW: Checking Synthesizability 2/2..
 Execute         transform -syn-check C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.g.2.prechk.bc -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 106.258 ; gain = 21.488
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 106.254 ; gain = 21.250
 INFO-FLOW: Compiler optimizing ...
 INFO-FLOW: Share syncheck's 1.bc for syn flow: copy C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.g.1.bc to C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.o.1.bc
 INFO-FLOW: Presyn 1...
@@ -277,19 +280,19 @@ INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (conv2D.c:27) in function 'conv2
 INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1.1' (conv2D.c:29) in function 'conv2D' completely with a factor of 3.
 INFO: [XFORM 203-101] Partitioning array 'input' (conv2D.c:4) in dimension 2 completely.
 INFO: [XFORM 203-101] Partitioning array 'kernel' (conv2D.c:5) in dimension 2 completely.
-Command         transform done; 0.148 sec.
+Command         transform done; 0.145 sec.
 INFO-FLOW: Presyn 2...
 Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.o.1.tmp.bc -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
 INFO: [XFORM 203-11] Balancing expressions in function 'conv2D' (conv2D.c:4)...72 expression(s) balanced.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 128.852 ; gain = 44.082
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 127.965 ; gain = 42.961
 INFO-FLOW: Building ssdm...
 Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -bitwidth -loop-bound -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -cdfg-build C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.o.2.bc -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
 INFO: [XFORM 203-811] Inferring bus burst write of length 9 on port 'gmem2' (conv2D.c:34:13).
-Command         transform done; 0.27 sec.
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 128.852 ; gain = 44.082
+Command         transform done; 0.238 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 128.031 ; gain = 43.027
 INFO-FLOW: Finish building internal data model.
-Command       opt_and_import_c done; 0.878 sec.
-Command     elaborate done; 4.049 sec.
+Command       opt_and_import_c done; 0.922 sec.
+Command     elaborate done; 5.51 sec.
 Execute     autosyn -from_csynth_design=1 
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO-FLOW: Synthesizing C/C++ design ...
@@ -435,10 +438,10 @@ WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:31
 Please consider increasing the target initiation interval of the pipeline.
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 25, Depth = 46.
 INFO: [SCHED 204-11] Finished scheduling.
-Command       schedule done; 2.818 sec.
-INFO: [HLS 200-111]  Elapsed time: 7.886 seconds; current allocated memory: 81.891 MB.
+Command       schedule done; 2.271 sec.
+INFO: [HLS 200-111]  Elapsed time: 8.664 seconds; current allocated memory: 81.890 MB.
 Execute       report -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.verbose.sched.rpt -verbose -f 
-Command       report done; 0.291 sec.
+Command       report done; 0.245 sec.
 Execute       db_write -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.sched.adb -f 
 INFO-FLOW: Finish scheduling conv2D.
 Execute       set_default_model conv2D 
@@ -452,10 +455,10 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-Command       bind done; 0.174 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.542 seconds; current allocated memory: 84.329 MB.
+Command       bind done; 0.168 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.486 seconds; current allocated memory: 84.345 MB.
 Execute       report -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.verbose.bind.rpt -verbose -f 
-Command       report done; 0.51 sec.
+Command       report done; 0.473 sec.
 Execute       db_write -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.bind.adb -f 
 INFO-FLOW: Finish binding conv2D.
 Execute       get_model_list conv2D -filter all-wo-channel 
@@ -484,28 +487,28 @@ INFO: [RTGEN 206-500] Setting interface mode on function 'conv2D' to 's_axilite 
 INFO: [RTGEN 206-100] Bundling port 'return', 'input_0', 'input_1', 'input_2', 'input_3', 'input_4', 'kernel_0', 'kernel_1', 'kernel_2' and 'output_r' to AXI-Lite port AXILiteS.
 INFO: [RTGEN 206-100] Generating core module 'conv2D_mul_32s_32s_32_4_1': 81 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'conv2D'.
-Command       create_rtl_model done; 0.305 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.914 seconds; current allocated memory: 89.613 MB.
+Command       create_rtl_model done; 0.302 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.867 seconds; current allocated memory: 89.644 MB.
 Execute       source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.rtl_wrap.cfg.tcl 
 Execute       gen_rtl conv2D -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/Admin/Downloads/btl/final/solution1/syn/systemc/conv2D_conv2D -synmodules conv2D 
 Execute       gen_rtl conv2D -istop -style xilinx -f -lang vhdl -o C:/Users/Admin/Downloads/btl/final/solution1/syn/vhdl/conv2D_conv2D 
-Command       gen_rtl done; 0.265 sec.
+Command       gen_rtl done; 0.235 sec.
 Execute       gen_rtl conv2D -istop -style xilinx -f -lang vlog -o C:/Users/Admin/Downloads/btl/final/solution1/syn/verilog/conv2D_conv2D 
-Command       gen_rtl done; 0.136 sec.
+Command       gen_rtl done; 0.126 sec.
 Execute       export_constraint_db -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.constraint.tcl -f -tool general 
 Execute       report -model conv2D -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.design.xml -verbose -f -dv 
-Command       report done; 0.251 sec.
+Command       report done; 0.227 sec.
 Execute       report -model conv2D -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.sdaccel.xml -verbose -f -sdaccel 
-Command       report done; 0.389 sec.
+Command       report done; 0.352 sec.
 Execute       gen_tb_info conv2D -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D -p C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db 
 Execute       report -model conv2D -o C:/Users/Admin/Downloads/btl/final/solution1/syn/report/conv2D_csynth.rpt -f 
-Command       report done; 0.135 sec.
+Command       report done; 0.121 sec.
 Execute       report -model conv2D -o C:/Users/Admin/Downloads/btl/final/solution1/syn/report/conv2D_csynth.xml -f -x 
-Command       report done; 0.131 sec.
+Command       report done; 0.115 sec.
 Execute       report -model conv2D -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.verbose.rpt -verbose -f 
-Command       report done; 0.677 sec.
+Command       report done; 0.586 sec.
 Execute       db_write -model conv2D -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.adb -f 
-Command       db_write done; 0.236 sec.
+Command       db_write done; 0.218 sec.
 Execute       sc_get_clocks conv2D 
 Execute       get_config_export -vivado_clock 
 Execute       sc_get_portdomain conv2D 
@@ -562,10 +565,10 @@ Execute             source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/d
 Execute             source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/util.gen 
 Execute             source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.gen 
 Execute             source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.gen 
-Command           ap_source done; 0.118 sec.
+Command           ap_source done; 0.101 sec.
 Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.gen 
-Command         ap_source done; 0.12 sec.
-Command       ap_source done; 0.12 sec.
+Command         ap_source done; 0.103 sec.
+Command       ap_source done; 0.104 sec.
 Execute       source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6.gen 
 Execute         source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv6.gen 
 INFO-FLOW: DBG:CMD:   using AESL_AUTOCG::g_clock_period=10.000 (was NA)
@@ -577,7 +580,7 @@ Execute       source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/
 INFO: [RTMG 210-282] Generating pipelined core: 'conv2D_conv2D_mul_32s_32s_32_4_1_Mul4S_0'
 Execute         source ./AXILiteS.slave.tcl 
 Execute         is_m_axi_addr64 
-Command       ap_source done; 0.177 sec.
+Command       ap_source done; 0.152 sec.
 INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d C:/Users/Admin/Downloads/btl/final/solution1
 Execute       source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
 INFO-FLOW: DBG:CMD: read_platform_lib C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl
@@ -602,10 +605,10 @@ Execute             source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/d
 Execute             source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/util.gen 
 Execute             source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.gen 
 Execute             source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.gen 
-Command           ap_source done; 0.112 sec.
+Command           ap_source done; 0.102 sec.
 Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.gen 
-Command         ap_source done; 0.114 sec.
-Command       ap_source done; 0.114 sec.
+Command         ap_source done; 0.104 sec.
+Command       ap_source done; 0.105 sec.
 Execute       source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6.gen 
 Execute         source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv6.gen 
 INFO-FLOW: DBG:CMD:       initCTypeInfo top_module=conv2D xml_exists=0
@@ -647,17 +650,17 @@ Execute       get_config_sdx -profile
 Execute       ::config_rtl 
 INFO-FLOW: DBG:CMD: add_json_sdx_info kernel file does not exist: C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/kernel.internal.xml
 INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 151.766 ; gain = 66.996
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:06 ; elapsed = 00:00:14 . Memory (MB): peak = 151.785 ; gain = 66.781
 INFO: [SYSC 207-301] Generating SystemC RTL for conv2D with prefix conv2D_.
 INFO: [VHDL 208-304] Generating VHDL RTL for conv2D with prefix conv2D_.
 INFO: [VLOG 209-307] Generating Verilog RTL for conv2D with prefix conv2D_.
-Command     autosyn done; 8.252 sec.
+Command     autosyn done; 7.175 sec.
 Execute     get_part 
 Execute     get_config_export -sdx_tcl 
-Command   csynth_design done; 12.315 sec.
-Command ap_source done; 12.651 sec.
+Command   csynth_design done; 12.7 sec.
+Command ap_source done; 12.998 sec.
 Execute cleanup_all 
-INFO-FLOW: Workspace C:/Users/Admin/Downloads/btl/final/solution1 opened at Wed Dec 18 12:21:17 +0700 2024
+INFO-FLOW: Workspace C:/Users/Admin/Downloads/btl/final/solution1 opened at Wed Dec 18 23:05:31 +0700 2024
 Execute     config_clock -quiet -name default -period 10 -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 Execute     config_clock -quiet -name default -uncertainty 2.7 -unit % 
@@ -708,10 +711,10 @@ Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/dds
 Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/util.gen 
 Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.gen 
 Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.gen 
-Command         ap_source done; 0.122 sec.
+Command         ap_source done; 0.103 sec.
 Execute         source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.gen 
-Command       ap_source done; 0.125 sec.
-Command     ap_source done; 0.125 sec.
+Command       ap_source done; 0.105 sec.
+Command     ap_source done; 0.105 sec.
 Execute     open_platform DefaultPlatform 
 Execute     import_lib C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6 
 Execute       source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv7.lib 
@@ -785,33 +788,10 @@ Execute     config_rtl -auto_prefix=1
 Execute     config_rtl -enable_maxiConservative=1 
 Execute     config_rtl -register_reset_num=3 
 Execute     config_interface -m_axi_addr64=1 
-Command   open_solution done; 0.263 sec.
-Execute   export_design -rtl vhdl -format ip_catalog -version 0.0.0 -xo C:/Users/Admin/Downloads/btl/conv2D.xo 
-Execute     get_config_export -acc 
-Execute     get_config_export -clock_margin 
-Execute     get_config_export -custom_script 
-Execute     get_config_export -description 
-Execute     get_config_export -display_name 
-Execute     get_config_export -driver_input_dir 
-Execute     get_config_export -ipname 
-Execute     get_config_export -kernel_drc 
-Execute     get_config_export -library 
-Execute     get_config_export -qor_test 
-Execute     get_config_export -sdaccel 
-Execute     get_config_export -sim 
-Execute     get_config_export -taxonomy 
-Execute     get_config_export -use_ip 
-Execute     get_config_export -use_netlist 
-Execute     get_config_export -vendor 
-Execute     config_export -format=ip_catalog -rtl=vhdl -version=0.0.0 -xo=C:/Users/Admin/Downloads/btl/conv2D.xo 
-INFO-FLOW: DBG:CMD: export_design_wrap: -format ip_catalog -rtl vhdl -version 0.0.0 -xo C:/Users/Admin/Downloads/btl/conv2D.xo
+Command   open_solution done; 0.228 sec.
+Execute   cosim_design 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     get_config_export -vivado_clock 
-Execute     get_top 
-Execute     get_config_sdx -target 
-INFO-FLOW: DBG:CMD:   auto_impl: set ipname to top (sdx target): conv2D
-Execute     get_config_sdx -target 
-INFO-FLOW: DBG:CMD:   auto_impl: pack: -export -tool vivado -rtl vhdl -xo C:/Users/Admin/Downloads/btl/conv2D.xo -sdx-target xocc
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
 INFO-FLOW: DBG:CMD: read_platform_lib C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl
 Execute     source C:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/common.gen 
@@ -835,161 +815,89 @@ Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/dds
 Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/util.gen 
 Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.gen 
 Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.gen 
-Command         ap_source done; 0.111 sec.
 Execute         source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.gen 
-Command       ap_source done; 0.113 sec.
-Command     ap_source done; 0.114 sec.
+Command       ap_source done; 0.101 sec.
+Command     ap_source done; 0.101 sec.
 Execute     source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6.gen 
 Execute       source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv6.gen 
 INFO-FLOW: DBG:CMD:   using AESL_AUTOCG::g_clock_period=10.000 (was NA)
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     is_encrypted C:/Users/Admin/Downloads/btl/testbench.c 
+Execute     is_encrypted C:/Users/Admin/Downloads/btl/conv2D.c 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/Admin/Downloads/btl/testbench.c C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/testbench.c_pre.c
+Execute     tidy_31 xilinx-tb-xfmat C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/testbench.c_pre.c std=gnu89 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/testbench.c_pre.c -- -std=gnu89 -fhls -ferror-limit=0
+INFO-FLOW: Marker-Pragma convertor: C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/testbench.c_pre.c C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/testbench.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/testbench.c_pre.c.tb.c.line C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/testbench.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: C:/Users/Admin/Downloads/btl/conv2D.c C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/conv2D.c_pre.c
+Execute     tidy_31 xilinx-tb-xfmat C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/conv2D.c_pre.c std=gnu89 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/conv2D.c_pre.c -- -std=gnu89 -fhls -ferror-limit=0
+INFO-FLOW: Marker-Pragma convertor: C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/conv2D.c_pre.c C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/conv2D.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/conv2D.c_pre.c.tb.c.line C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/conv2D.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/./sim/autowrap/testbench/tb.status.tcl 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-INFO-FLOW: DBG:CMD: automg_wrap -export -pcore_version 1.00.a -rtl vhdl -xo C:/Users/Admin/Downloads/btl/conv2D.xo -sdx-target xocc -tool Vivado -impltomg_flag
-INFO-FLOW: DBG:CMD:     auto_generate -export -pcore_version 1.00.a -rtl vhdl -xo C:/Users/Admin/Downloads/btl/conv2D.xo -sdx-target xocc -tool Vivado -impltomg_flag
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-INFO-FLOW: DBG:CMD: read_platform_lib C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl
-Execute     source C:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/common.gen 
-Execute       source C:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/APCoreGen.gen 
-Execute     source C:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/op.gen 
-Execute     source C:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/op_simcore.gen 
-Execute     source C:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/interface.gen 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq.gen 
-Execute       source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/virtex.gen 
-Execute         source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/plb46.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/fsl.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/axi4.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/nativeAXI4.gen 
-Execute             source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.gen 
-Execute             source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/scripts/xilinxcoregen.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/dds_compiler.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/util.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.gen 
-Command         ap_source done; 0.111 sec.
-Execute         source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.gen 
-Command       ap_source done; 0.114 sec.
-Command     ap_source done; 0.114 sec.
-Execute     source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6.gen 
-Execute       source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv6.gen 
-INFO-FLOW: DBG:CMD:       initCTypeInfo top_module=conv2D xml_exists=1
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.rtl_wrap.cfg.tcl 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.rtl_wrap.cfg.tcl 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.rtl_wrap.cfg.tcl 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-INFO-FLOW: DBG:CMD:       export_impl_rtl
-INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.verilog
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.compgen.tcl 
-INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=1 expOnly=1 dstVlogDir=impl/.pcores/verilog
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.compgen.tcl 
-INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.compgen.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.constraint.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=0
-INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=12
-INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=0 g_has_adaptors=false generate_bd_files=0 #modelList=6 #gSsdmPorts=0
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     get_config_export -xo 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.constraint.tcl 
-Execute     sc_get_clocks conv2D 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     get_config_sdx -target 
-Execute     get_config_sdx -profile 
-Execute     ::config_rtl 
-INFO-FLOW: DBG:CMD: add_json_sdx_info kernel file does not exist: C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/kernel.internal.xml
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-INFO-FLOW: DBG:CMD:       kernel.xml check internal_kernel_xml(0)=C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/kernel.internal.xml srclang=c top=conv2D
-INFO-FLOW: DBG:CMD:       kernel.xml check proj_kernel_xml    (1)=C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/../../../kernel.xml use_proj_kernel_xml=false
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-INFO-FLOW: DBG:CMD:       ap_gen_kernel_xml C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/kernel.internal.xml a conv2D none
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-INFO-FLOW: Generating Kernel XML ...
-Execute     transform -hls -top=conv2D -xcl-target=hls -xcl-xmlinfo=C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/../../../kernel.xml -xcl-profiletype=none -mem2reg -hlskernelxml C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.g.bc -o C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/a.cl.xml.bc -f 
-INFO-FLOW: DBG:CMD: Copying raw kernel.xml: C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/../../../kernel.xml -> C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/kernel.internal.xml
-INFO-FLOW: DBG:CMD:       update_final_kernel_xml C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/../../../kernel.xml
-Execute     get_config_debug -enable 
-INFO-FLOW: DBG:CMD: Updating C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/../../../kernel.xml with values: interrupt true debug false compileOptions {} name conv2D vlnv xilinx.com:hls:conv2D:0.0
-INFO-FLOW: DBG:CMD:       copy ip_driver_dir 0_0 C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/driver
-INFO-FLOW: DBG:CMD:       generate_ip_script #gSsdmPorts=0
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-INFO-FLOW: DBG:CMD:       generate_ip_auxiliary
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-INFO-FLOW: DBG:CMD:       prepArgInfo -> loadAnalyze_DB top_module=conv2D
+WARNING: [COSIM 212-369] AXI_master port 'input' has a depth of '5'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'kernel' has a depth of '3'. Insufficient depth may result in simulation mismatch or freeze.
+WARNING: [COSIM 212-369] AXI_master port 'gmem2' has a depth of '9'. Insufficient depth may result in simulation mismatch or freeze.
+Execute     get_default_platform 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.rtl_wrap.cfg.tcl 
+Execute     source .run_sim.tcl 
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Command     ap_source done; 19.458 sec.
+INFO: [COSIM 212-333] Generating C post check test bench ...
+Execute     get_default_platform 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.rtl_wrap.cfg.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.rtl_wrap.cfg.tcl 
+INFO: [COSIM 212-12] Generating RTL test bench ...
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-INFO-FLOW: DBG:CMD:       generate_top_info
-INFO-FLOW: DBG:CMD:       prepArgInfo -> loadAnalyze_DB top_module=conv2D
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.rtl_wrap.cfg.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.rtl_wrap.cfg.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.rtl_wrap.cfg.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source ../tv/cdatafile/ref.tcl 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.constraint.tcl 
-INFO-FLOW: DBG:CMD:       generate_ipi_example_script
-INFO-FLOW: DBG:CMD:       generate_syn_sh
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-INFO-FLOW: DBG:CMD:       generate_imp_constraints
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.constraint.tcl 
 Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
-INFO-FLOW: DBG:CMD:       copy-tb-rtl-files
-INFO-FLOW: DBG:CMD:       copy-tb-data-files
-INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
-INFO-FLOW: DBG:CMD: read_platform_lib C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl
-Execute     source C:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/common.gen 
-Execute       source C:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/APCoreGen.gen 
-Execute     source C:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/op.gen 
-Execute     source C:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/op_simcore.gen 
-Execute     source C:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/interface.gen 
-Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/global.setting.tcl 
-Execute     source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq.gen 
-Execute       source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/virtex.gen 
-Execute         source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/plb46.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/fsl.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/axi4.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/nativeAXI4.gen 
-Execute             source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.gen 
-Execute             source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/scripts/xilinxcoregen.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/dds_compiler.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/util.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.gen 
-Execute           source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.gen 
-Command         ap_source done; 0.114 sec.
-Execute         source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.gen 
-Command       ap_source done; 0.117 sec.
-Command     ap_source done; 0.118 sec.
-Execute     source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6.gen 
-Execute       source C:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv6.gen 
-INFO-FLOW: DBG:CMD:     exec C:/Users/Admin/Downloads/btl/final/solution1/impl/ip/pack.bat
-Command   export_design done; 8.659 sec.
-Command ap_source done; 8.926 sec.
-Execute cleanup_all 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source ../tv/cdatafile/ref.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source C:/Users/Admin/Downloads/btl/final/solution1/.autopilot/db/conv2D.tbgen.tcl 
+Execute     source .run_sim.tcl 
+Execute       source check_sim.tcl 
+Execute       source .sim.status.tcl 

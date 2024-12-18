@@ -1,5 +1,5 @@
 // ==============================================================
-// File generated on Wed Dec 18 11:00:28 +0700 2024
+// File generated on Wed Dec 18 23:06:03 +0700 2024
 // Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
 // SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 // IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
@@ -20,18 +20,36 @@
 `define AESL_DEPTH_gmem0 1
 `define AESL_DEPTH_gmem1 1
 `define AESL_DEPTH_gmem2 1
-`define AESL_DEPTH_input_r 1
-`define AESL_DEPTH_kernel 1
+`define AESL_DEPTH_input_0 1
+`define AESL_DEPTH_input_1 1
+`define AESL_DEPTH_input_2 1
+`define AESL_DEPTH_input_3 1
+`define AESL_DEPTH_input_4 1
+`define AESL_DEPTH_kernel_0 1
+`define AESL_DEPTH_kernel_1 1
+`define AESL_DEPTH_kernel_2 1
 `define AESL_DEPTH_output_r 1
 `define AUTOTB_TVIN_gmem0  "../tv/cdatafile/c.conv2D_conv2D.autotvin_gmem0.dat"
 `define AUTOTB_TVIN_gmem1  "../tv/cdatafile/c.conv2D_conv2D.autotvin_gmem1.dat"
-`define AUTOTB_TVIN_input_r  "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_r.dat"
-`define AUTOTB_TVIN_kernel  "../tv/cdatafile/c.conv2D_conv2D.autotvin_kernel.dat"
+`define AUTOTB_TVIN_input_0  "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_0.dat"
+`define AUTOTB_TVIN_input_1  "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_1.dat"
+`define AUTOTB_TVIN_input_2  "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_2.dat"
+`define AUTOTB_TVIN_input_3  "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_3.dat"
+`define AUTOTB_TVIN_input_4  "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_4.dat"
+`define AUTOTB_TVIN_kernel_0  "../tv/cdatafile/c.conv2D_conv2D.autotvin_kernel_0.dat"
+`define AUTOTB_TVIN_kernel_1  "../tv/cdatafile/c.conv2D_conv2D.autotvin_kernel_1.dat"
+`define AUTOTB_TVIN_kernel_2  "../tv/cdatafile/c.conv2D_conv2D.autotvin_kernel_2.dat"
 `define AUTOTB_TVIN_output_r  "../tv/cdatafile/c.conv2D_conv2D.autotvin_output_r.dat"
 `define AUTOTB_TVIN_gmem0_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_gmem0.dat"
 `define AUTOTB_TVIN_gmem1_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_gmem1.dat"
-`define AUTOTB_TVIN_input_r_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_input_r.dat"
-`define AUTOTB_TVIN_kernel_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_kernel.dat"
+`define AUTOTB_TVIN_input_0_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_input_0.dat"
+`define AUTOTB_TVIN_input_1_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_input_1.dat"
+`define AUTOTB_TVIN_input_2_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_input_2.dat"
+`define AUTOTB_TVIN_input_3_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_input_3.dat"
+`define AUTOTB_TVIN_input_4_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_input_4.dat"
+`define AUTOTB_TVIN_kernel_0_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_kernel_0.dat"
+`define AUTOTB_TVIN_kernel_1_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_kernel_1.dat"
+`define AUTOTB_TVIN_kernel_2_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_kernel_2.dat"
 `define AUTOTB_TVIN_output_r_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvin_output_r.dat"
 `define AUTOTB_TVOUT_gmem2  "../tv/cdatafile/c.conv2D_conv2D.autotvout_gmem2.dat"
 `define AUTOTB_TVOUT_gmem2_out_wrapc  "../tv/rtldatafile/rtl.conv2D_conv2D.autotvout_gmem2.dat"
@@ -43,8 +61,14 @@ parameter LATENCY_ESTIMATION = 45;
 parameter LENGTH_gmem0 = 25;
 parameter LENGTH_gmem1 = 9;
 parameter LENGTH_gmem2 = 9;
-parameter LENGTH_input_r = 1;
-parameter LENGTH_kernel = 1;
+parameter LENGTH_input_0 = 1;
+parameter LENGTH_input_1 = 1;
+parameter LENGTH_input_2 = 1;
+parameter LENGTH_input_3 = 1;
+parameter LENGTH_input_4 = 1;
+parameter LENGTH_kernel_0 = 1;
+parameter LENGTH_kernel_1 = 1;
+parameter LENGTH_kernel_2 = 1;
 parameter LENGTH_output_r = 1;
 
 task read_token;
@@ -75,14 +99,14 @@ reg AESL_done_delay2 = 0;
 reg AESL_ready_delay = 0;
 wire ready;
 wire ready_wire;
-wire [5 : 0] AXILiteS_AWADDR;
+wire [6 : 0] AXILiteS_AWADDR;
 wire  AXILiteS_AWVALID;
 wire  AXILiteS_AWREADY;
 wire  AXILiteS_WVALID;
 wire  AXILiteS_WREADY;
 wire [31 : 0] AXILiteS_WDATA;
 wire [3 : 0] AXILiteS_WSTRB;
-wire [5 : 0] AXILiteS_ARADDR;
+wire [6 : 0] AXILiteS_ARADDR;
 wire  AXILiteS_ARVALID;
 wire  AXILiteS_ARREADY;
 wire  AXILiteS_RVALID;
@@ -480,9 +504,19 @@ end
 
 
 
+
+
+
+
+
+
 wire    AESL_axi_master_gmem0_ready;
 wire    AESL_axi_master_gmem0_done;
-wire [64 - 1:0] input_r;
+wire [64 - 1:0] input_0;
+wire [64 - 1:0] input_1;
+wire [64 - 1:0] input_2;
+wire [64 - 1:0] input_3;
+wire [64 - 1:0] input_4;
 AESL_axi_master_gmem0 AESL_AXI_MASTER_gmem0(
     .clk   (AESL_clock),
     .reset (AESL_reset),
@@ -531,7 +565,11 @@ AESL_axi_master_gmem0 AESL_AXI_MASTER_gmem0(
     .TRAN_gmem0_BRESP (gmem0_BRESP),
     .TRAN_gmem0_BID (gmem0_BID),
     .TRAN_gmem0_BUSER (gmem0_BUSER),
-    .TRAN_gmem0_input_r (input_r),
+    .TRAN_gmem0_input_0 (input_0),
+    .TRAN_gmem0_input_1 (input_1),
+    .TRAN_gmem0_input_2 (input_2),
+    .TRAN_gmem0_input_3 (input_3),
+    .TRAN_gmem0_input_4 (input_4),
     .ready (AESL_axi_master_gmem0_ready),
     .done  (AESL_axi_master_gmem0_done)
 );
@@ -539,7 +577,9 @@ assign    AESL_axi_master_gmem0_ready    =   ready;
 assign    AESL_axi_master_gmem0_done    =   AESL_done_delay;
 wire    AESL_axi_master_gmem1_ready;
 wire    AESL_axi_master_gmem1_done;
-wire [64 - 1:0] kernel;
+wire [64 - 1:0] kernel_0;
+wire [64 - 1:0] kernel_1;
+wire [64 - 1:0] kernel_2;
 AESL_axi_master_gmem1 AESL_AXI_MASTER_gmem1(
     .clk   (AESL_clock),
     .reset (AESL_reset),
@@ -588,7 +628,9 @@ AESL_axi_master_gmem1 AESL_AXI_MASTER_gmem1(
     .TRAN_gmem1_BRESP (gmem1_BRESP),
     .TRAN_gmem1_BID (gmem1_BID),
     .TRAN_gmem1_BUSER (gmem1_BUSER),
-    .TRAN_gmem1_kernel (kernel),
+    .TRAN_gmem1_kernel_0 (kernel_0),
+    .TRAN_gmem1_kernel_1 (kernel_1),
+    .TRAN_gmem1_kernel_2 (kernel_2),
     .ready (AESL_axi_master_gmem1_ready),
     .done  (AESL_axi_master_gmem1_done)
 );
@@ -673,8 +715,14 @@ AESL_axi_slave_AXILiteS AESL_AXI_SLAVE_AXILiteS(
     .TRAN_s_axi_AXILiteS_BREADY (AXILiteS_BREADY),
     .TRAN_s_axi_AXILiteS_BRESP (AXILiteS_BRESP),
     .TRAN_AXILiteS_interrupt (AXILiteS_INTERRUPT),
-    .TRAN_input_r (input_r),
-    .TRAN_kernel (kernel),
+    .TRAN_input_0 (input_0),
+    .TRAN_input_1 (input_1),
+    .TRAN_input_2 (input_2),
+    .TRAN_input_3 (input_3),
+    .TRAN_input_4 (input_4),
+    .TRAN_kernel_0 (kernel_0),
+    .TRAN_kernel_1 (kernel_1),
+    .TRAN_kernel_2 (kernel_2),
     .TRAN_output_r (output_r),
     .TRAN_AXILiteS_write_data_finish(AXILiteS_write_data_finish),
     .TRAN_AXILiteS_ready_out (AESL_ready),
@@ -755,12 +803,30 @@ reg [31:0] size_gmem0_backup;
 reg end_gmem1;
 reg [31:0] size_gmem1;
 reg [31:0] size_gmem1_backup;
-reg end_input_r;
-reg [31:0] size_input_r;
-reg [31:0] size_input_r_backup;
-reg end_kernel;
-reg [31:0] size_kernel;
-reg [31:0] size_kernel_backup;
+reg end_input_0;
+reg [31:0] size_input_0;
+reg [31:0] size_input_0_backup;
+reg end_input_1;
+reg [31:0] size_input_1;
+reg [31:0] size_input_1_backup;
+reg end_input_2;
+reg [31:0] size_input_2;
+reg [31:0] size_input_2_backup;
+reg end_input_3;
+reg [31:0] size_input_3;
+reg [31:0] size_input_3_backup;
+reg end_input_4;
+reg [31:0] size_input_4;
+reg [31:0] size_input_4_backup;
+reg end_kernel_0;
+reg [31:0] size_kernel_0;
+reg [31:0] size_kernel_0_backup;
+reg end_kernel_1;
+reg [31:0] size_kernel_1;
+reg [31:0] size_kernel_1_backup;
+reg end_kernel_2;
+reg [31:0] size_kernel_2;
+reg [31:0] size_kernel_2_backup;
 reg end_output_r;
 reg [31:0] size_output_r;
 reg [31:0] size_output_r_backup;

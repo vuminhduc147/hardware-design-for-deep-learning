@@ -1,5 +1,5 @@
 // ==============================================================
-// File generated on Wed Dec 18 10:59:51 +0700 2024
+// File generated on Wed Dec 18 23:05:34 +0700 2024
 // Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
 // SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 // IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
@@ -39,10 +39,22 @@ using namespace sc_dt;
 // wrapc file define: "gmem2"
 #define AUTOTB_TVOUT_gmem2  "../tv/cdatafile/c.conv2D_conv2D.autotvout_gmem2.dat"
 #define AUTOTB_TVIN_gmem2  "../tv/cdatafile/c.conv2D_conv2D.autotvin_gmem2.dat"
-// wrapc file define: "input_r"
-#define AUTOTB_TVIN_input_r  "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_r.dat"
-// wrapc file define: "kernel"
-#define AUTOTB_TVIN_kernel  "../tv/cdatafile/c.conv2D_conv2D.autotvin_kernel.dat"
+// wrapc file define: "input_0"
+#define AUTOTB_TVIN_input_0  "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_0.dat"
+// wrapc file define: "input_1"
+#define AUTOTB_TVIN_input_1  "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_1.dat"
+// wrapc file define: "input_2"
+#define AUTOTB_TVIN_input_2  "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_2.dat"
+// wrapc file define: "input_3"
+#define AUTOTB_TVIN_input_3  "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_3.dat"
+// wrapc file define: "input_4"
+#define AUTOTB_TVIN_input_4  "../tv/cdatafile/c.conv2D_conv2D.autotvin_input_4.dat"
+// wrapc file define: "kernel_0"
+#define AUTOTB_TVIN_kernel_0  "../tv/cdatafile/c.conv2D_conv2D.autotvin_kernel_0.dat"
+// wrapc file define: "kernel_1"
+#define AUTOTB_TVIN_kernel_1  "../tv/cdatafile/c.conv2D_conv2D.autotvin_kernel_1.dat"
+// wrapc file define: "kernel_2"
+#define AUTOTB_TVIN_kernel_2  "../tv/cdatafile/c.conv2D_conv2D.autotvin_kernel_2.dat"
 // wrapc file define: "output_r"
 #define AUTOTB_TVIN_output_r  "../tv/cdatafile/c.conv2D_conv2D.autotvin_output_r.dat"
 
@@ -58,8 +70,14 @@ class INTER_TCL_FILE {
 			gmem0_depth = 0;
 			gmem1_depth = 0;
 			gmem2_depth = 0;
-			input_r_depth = 0;
-			kernel_depth = 0;
+			input_0_depth = 0;
+			input_1_depth = 0;
+			input_2_depth = 0;
+			input_3_depth = 0;
+			input_4_depth = 0;
+			kernel_0_depth = 0;
+			kernel_1_depth = 0;
+			kernel_2_depth = 0;
 			output_r_depth = 0;
 			trans_num =0;
 		}
@@ -83,8 +101,14 @@ class INTER_TCL_FILE {
 			total_list << "{gmem0 " << gmem0_depth << "}\n";
 			total_list << "{gmem1 " << gmem1_depth << "}\n";
 			total_list << "{gmem2 " << gmem2_depth << "}\n";
-			total_list << "{input_r " << input_r_depth << "}\n";
-			total_list << "{kernel " << kernel_depth << "}\n";
+			total_list << "{input_0 " << input_0_depth << "}\n";
+			total_list << "{input_1 " << input_1_depth << "}\n";
+			total_list << "{input_2 " << input_2_depth << "}\n";
+			total_list << "{input_3 " << input_3_depth << "}\n";
+			total_list << "{input_4 " << input_4_depth << "}\n";
+			total_list << "{kernel_0 " << kernel_0_depth << "}\n";
+			total_list << "{kernel_1 " << kernel_1_depth << "}\n";
+			total_list << "{kernel_2 " << kernel_2_depth << "}\n";
 			total_list << "{output_r " << output_r_depth << "}\n";
 			return total_list.str();
 		}
@@ -96,8 +120,14 @@ class INTER_TCL_FILE {
 		int gmem0_depth;
 		int gmem1_depth;
 		int gmem2_depth;
-		int input_r_depth;
-		int kernel_depth;
+		int input_0_depth;
+		int input_1_depth;
+		int input_2_depth;
+		int input_3_depth;
+		int input_4_depth;
+		int kernel_0_depth;
+		int kernel_1_depth;
+		int kernel_2_depth;
 		int output_r_depth;
 		int trans_num;
 
@@ -295,13 +325,37 @@ int output[3][3])
 		char* tvout_gmem2 = new char[50];
 		aesl_fh.touch(AUTOTB_TVOUT_gmem2);
 
-		// "input_r"
-		char* tvin_input_r = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_input_r);
+		// "input_0"
+		char* tvin_input_0 = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_input_0);
 
-		// "kernel"
-		char* tvin_kernel = new char[50];
-		aesl_fh.touch(AUTOTB_TVIN_kernel);
+		// "input_1"
+		char* tvin_input_1 = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_input_1);
+
+		// "input_2"
+		char* tvin_input_2 = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_input_2);
+
+		// "input_3"
+		char* tvin_input_3 = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_input_3);
+
+		// "input_4"
+		char* tvin_input_4 = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_input_4);
+
+		// "kernel_0"
+		char* tvin_kernel_0 = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_kernel_0);
+
+		// "kernel_1"
+		char* tvin_kernel_1 = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_kernel_1);
+
+		// "kernel_2"
+		char* tvin_kernel_2 = new char[50];
+		aesl_fh.touch(AUTOTB_TVIN_kernel_2);
 
 		// "output_r"
 		char* tvin_output_r = new char[50];
@@ -327,8 +381,104 @@ int output[3][3])
 					// carray: (0) => (4) @ (1)
 					for (int i_0 = 0; i_0 <= 4; i_0 += 1)
 					{
-						// carray: (0) => (4) @ (1)
-						for (int i_1 = 0; i_1 <= 4; i_1 += 1)
+						// carray: (0) => (0) @ (2)
+						for (int i_1 = 0; i_1 <= 0; i_1 += 2)
+						{
+							// sub                   : i_0 i_1
+							// ori_name              : input[i_0][i_1]
+							// sub_1st_elem          : 0 0
+							// ori_name_1st_elem     : input[0][0]
+							// regulate_c_name       : input
+							// input_type_conversion : input[i_0][i_1]
+							if (&(input[0][0]) != NULL) // check the null address if the c port is array or others
+							{
+								sc_lv<32> input_tmp_mem;
+								input_tmp_mem = input[i_0][i_1];
+								gmem0_tvin_wrapc_buffer[hls_map_index].range(31, 0) = input_tmp_mem.range(31, 0);
+                                 		       hls_map_index++;
+							}
+						}
+					}
+				}
+				// celement: input(31, 0)
+				{
+					// carray: (0) => (4) @ (1)
+					for (int i_0 = 0; i_0 <= 4; i_0 += 1)
+					{
+						// carray: (1) => (1) @ (2)
+						for (int i_1 = 1; i_1 <= 1; i_1 += 2)
+						{
+							// sub                   : i_0 i_1
+							// ori_name              : input[i_0][i_1]
+							// sub_1st_elem          : 0 0
+							// ori_name_1st_elem     : input[0][0]
+							// regulate_c_name       : input
+							// input_type_conversion : input[i_0][i_1]
+							if (&(input[0][0]) != NULL) // check the null address if the c port is array or others
+							{
+								sc_lv<32> input_tmp_mem;
+								input_tmp_mem = input[i_0][i_1];
+								gmem0_tvin_wrapc_buffer[hls_map_index].range(31, 0) = input_tmp_mem.range(31, 0);
+                                 		       hls_map_index++;
+							}
+						}
+					}
+				}
+				// celement: input(31, 0)
+				{
+					// carray: (0) => (4) @ (1)
+					for (int i_0 = 0; i_0 <= 4; i_0 += 1)
+					{
+						// carray: (2) => (2) @ (2)
+						for (int i_1 = 2; i_1 <= 2; i_1 += 2)
+						{
+							// sub                   : i_0 i_1
+							// ori_name              : input[i_0][i_1]
+							// sub_1st_elem          : 0 0
+							// ori_name_1st_elem     : input[0][0]
+							// regulate_c_name       : input
+							// input_type_conversion : input[i_0][i_1]
+							if (&(input[0][0]) != NULL) // check the null address if the c port is array or others
+							{
+								sc_lv<32> input_tmp_mem;
+								input_tmp_mem = input[i_0][i_1];
+								gmem0_tvin_wrapc_buffer[hls_map_index].range(31, 0) = input_tmp_mem.range(31, 0);
+                                 		       hls_map_index++;
+							}
+						}
+					}
+				}
+				// celement: input(31, 0)
+				{
+					// carray: (0) => (4) @ (1)
+					for (int i_0 = 0; i_0 <= 4; i_0 += 1)
+					{
+						// carray: (3) => (3) @ (2)
+						for (int i_1 = 3; i_1 <= 3; i_1 += 2)
+						{
+							// sub                   : i_0 i_1
+							// ori_name              : input[i_0][i_1]
+							// sub_1st_elem          : 0 0
+							// ori_name_1st_elem     : input[0][0]
+							// regulate_c_name       : input
+							// input_type_conversion : input[i_0][i_1]
+							if (&(input[0][0]) != NULL) // check the null address if the c port is array or others
+							{
+								sc_lv<32> input_tmp_mem;
+								input_tmp_mem = input[i_0][i_1];
+								gmem0_tvin_wrapc_buffer[hls_map_index].range(31, 0) = input_tmp_mem.range(31, 0);
+                                 		       hls_map_index++;
+							}
+						}
+					}
+				}
+				// celement: input(31, 0)
+				{
+					// carray: (0) => (4) @ (1)
+					for (int i_0 = 0; i_0 <= 4; i_0 += 1)
+					{
+						// carray: (4) => (4) @ (2)
+						for (int i_1 = 4; i_1 <= 4; i_1 += 2)
 						{
 							// sub                   : i_0 i_1
 							// ori_name              : input[i_0][i_1]
@@ -379,8 +529,56 @@ int output[3][3])
 					// carray: (0) => (2) @ (1)
 					for (int i_0 = 0; i_0 <= 2; i_0 += 1)
 					{
-						// carray: (0) => (2) @ (1)
-						for (int i_1 = 0; i_1 <= 2; i_1 += 1)
+						// carray: (0) => (0) @ (2)
+						for (int i_1 = 0; i_1 <= 0; i_1 += 2)
+						{
+							// sub                   : i_0 i_1
+							// ori_name              : kernel[i_0][i_1]
+							// sub_1st_elem          : 0 0
+							// ori_name_1st_elem     : kernel[0][0]
+							// regulate_c_name       : kernel
+							// input_type_conversion : kernel[i_0][i_1]
+							if (&(kernel[0][0]) != NULL) // check the null address if the c port is array or others
+							{
+								sc_lv<32> kernel_tmp_mem;
+								kernel_tmp_mem = kernel[i_0][i_1];
+								gmem1_tvin_wrapc_buffer[hls_map_index].range(31, 0) = kernel_tmp_mem.range(31, 0);
+                                 		       hls_map_index++;
+							}
+						}
+					}
+				}
+				// celement: kernel(31, 0)
+				{
+					// carray: (0) => (2) @ (1)
+					for (int i_0 = 0; i_0 <= 2; i_0 += 1)
+					{
+						// carray: (1) => (1) @ (2)
+						for (int i_1 = 1; i_1 <= 1; i_1 += 2)
+						{
+							// sub                   : i_0 i_1
+							// ori_name              : kernel[i_0][i_1]
+							// sub_1st_elem          : 0 0
+							// ori_name_1st_elem     : kernel[0][0]
+							// regulate_c_name       : kernel
+							// input_type_conversion : kernel[i_0][i_1]
+							if (&(kernel[0][0]) != NULL) // check the null address if the c port is array or others
+							{
+								sc_lv<32> kernel_tmp_mem;
+								kernel_tmp_mem = kernel[i_0][i_1];
+								gmem1_tvin_wrapc_buffer[hls_map_index].range(31, 0) = kernel_tmp_mem.range(31, 0);
+                                 		       hls_map_index++;
+							}
+						}
+					}
+				}
+				// celement: kernel(31, 0)
+				{
+					// carray: (0) => (2) @ (1)
+					for (int i_0 = 0; i_0 <= 2; i_0 += 1)
+					{
+						// carray: (2) => (2) @ (2)
+						for (int i_1 = 2; i_1 <= 2; i_1 += 2)
 						{
 							// sub                   : i_0 i_1
 							// ori_name              : kernel[i_0][i_1]
@@ -468,46 +666,172 @@ int output[3][3])
 		delete [] gmem2_tvin_wrapc_buffer;
 
 		// [[transaction]]
-		sprintf(tvin_input_r, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVIN_input_r, tvin_input_r);
+		sprintf(tvin_input_0, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVIN_input_0, tvin_input_0);
 
-		sc_bv<64> input_r_tvin_wrapc_buffer;
+		sc_bv<64> input_0_tvin_wrapc_buffer;
 
-		// RTL Name: input_r
+		// RTL Name: input_0
 		{
 		}
 
 		// dump tv to file
 		for (int i = 0; i < 1; i++)
 		{
-			sprintf(tvin_input_r, "%s\n", (input_r_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVIN_input_r, tvin_input_r);
+			sprintf(tvin_input_0, "%s\n", (input_0_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVIN_input_0, tvin_input_0);
 		}
 
-		tcl_file.set_num(1, &tcl_file.input_r_depth);
-		sprintf(tvin_input_r, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVIN_input_r, tvin_input_r);
+		tcl_file.set_num(1, &tcl_file.input_0_depth);
+		sprintf(tvin_input_0, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVIN_input_0, tvin_input_0);
 
 		// [[transaction]]
-		sprintf(tvin_kernel, "[[transaction]] %d\n", AESL_transaction);
-		aesl_fh.write(AUTOTB_TVIN_kernel, tvin_kernel);
+		sprintf(tvin_input_1, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVIN_input_1, tvin_input_1);
 
-		sc_bv<64> kernel_tvin_wrapc_buffer;
+		sc_bv<64> input_1_tvin_wrapc_buffer;
 
-		// RTL Name: kernel
+		// RTL Name: input_1
 		{
 		}
 
 		// dump tv to file
 		for (int i = 0; i < 1; i++)
 		{
-			sprintf(tvin_kernel, "%s\n", (kernel_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
-			aesl_fh.write(AUTOTB_TVIN_kernel, tvin_kernel);
+			sprintf(tvin_input_1, "%s\n", (input_1_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVIN_input_1, tvin_input_1);
 		}
 
-		tcl_file.set_num(1, &tcl_file.kernel_depth);
-		sprintf(tvin_kernel, "[[/transaction]] \n");
-		aesl_fh.write(AUTOTB_TVIN_kernel, tvin_kernel);
+		tcl_file.set_num(1, &tcl_file.input_1_depth);
+		sprintf(tvin_input_1, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVIN_input_1, tvin_input_1);
+
+		// [[transaction]]
+		sprintf(tvin_input_2, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVIN_input_2, tvin_input_2);
+
+		sc_bv<64> input_2_tvin_wrapc_buffer;
+
+		// RTL Name: input_2
+		{
+		}
+
+		// dump tv to file
+		for (int i = 0; i < 1; i++)
+		{
+			sprintf(tvin_input_2, "%s\n", (input_2_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVIN_input_2, tvin_input_2);
+		}
+
+		tcl_file.set_num(1, &tcl_file.input_2_depth);
+		sprintf(tvin_input_2, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVIN_input_2, tvin_input_2);
+
+		// [[transaction]]
+		sprintf(tvin_input_3, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVIN_input_3, tvin_input_3);
+
+		sc_bv<64> input_3_tvin_wrapc_buffer;
+
+		// RTL Name: input_3
+		{
+		}
+
+		// dump tv to file
+		for (int i = 0; i < 1; i++)
+		{
+			sprintf(tvin_input_3, "%s\n", (input_3_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVIN_input_3, tvin_input_3);
+		}
+
+		tcl_file.set_num(1, &tcl_file.input_3_depth);
+		sprintf(tvin_input_3, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVIN_input_3, tvin_input_3);
+
+		// [[transaction]]
+		sprintf(tvin_input_4, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVIN_input_4, tvin_input_4);
+
+		sc_bv<64> input_4_tvin_wrapc_buffer;
+
+		// RTL Name: input_4
+		{
+		}
+
+		// dump tv to file
+		for (int i = 0; i < 1; i++)
+		{
+			sprintf(tvin_input_4, "%s\n", (input_4_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVIN_input_4, tvin_input_4);
+		}
+
+		tcl_file.set_num(1, &tcl_file.input_4_depth);
+		sprintf(tvin_input_4, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVIN_input_4, tvin_input_4);
+
+		// [[transaction]]
+		sprintf(tvin_kernel_0, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVIN_kernel_0, tvin_kernel_0);
+
+		sc_bv<64> kernel_0_tvin_wrapc_buffer;
+
+		// RTL Name: kernel_0
+		{
+		}
+
+		// dump tv to file
+		for (int i = 0; i < 1; i++)
+		{
+			sprintf(tvin_kernel_0, "%s\n", (kernel_0_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVIN_kernel_0, tvin_kernel_0);
+		}
+
+		tcl_file.set_num(1, &tcl_file.kernel_0_depth);
+		sprintf(tvin_kernel_0, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVIN_kernel_0, tvin_kernel_0);
+
+		// [[transaction]]
+		sprintf(tvin_kernel_1, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVIN_kernel_1, tvin_kernel_1);
+
+		sc_bv<64> kernel_1_tvin_wrapc_buffer;
+
+		// RTL Name: kernel_1
+		{
+		}
+
+		// dump tv to file
+		for (int i = 0; i < 1; i++)
+		{
+			sprintf(tvin_kernel_1, "%s\n", (kernel_1_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVIN_kernel_1, tvin_kernel_1);
+		}
+
+		tcl_file.set_num(1, &tcl_file.kernel_1_depth);
+		sprintf(tvin_kernel_1, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVIN_kernel_1, tvin_kernel_1);
+
+		// [[transaction]]
+		sprintf(tvin_kernel_2, "[[transaction]] %d\n", AESL_transaction);
+		aesl_fh.write(AUTOTB_TVIN_kernel_2, tvin_kernel_2);
+
+		sc_bv<64> kernel_2_tvin_wrapc_buffer;
+
+		// RTL Name: kernel_2
+		{
+		}
+
+		// dump tv to file
+		for (int i = 0; i < 1; i++)
+		{
+			sprintf(tvin_kernel_2, "%s\n", (kernel_2_tvin_wrapc_buffer).to_string(SC_HEX).c_str());
+			aesl_fh.write(AUTOTB_TVIN_kernel_2, tvin_kernel_2);
+		}
+
+		tcl_file.set_num(1, &tcl_file.kernel_2_depth);
+		sprintf(tvin_kernel_2, "[[/transaction]] \n");
+		aesl_fh.write(AUTOTB_TVIN_kernel_2, tvin_kernel_2);
 
 		// [[transaction]]
 		sprintf(tvin_output_r, "[[transaction]] %d\n", AESL_transaction);
@@ -597,10 +921,22 @@ int output[3][3])
 		// release memory allocation: "gmem2"
 		delete [] tvout_gmem2;
 		delete [] tvin_gmem2;
-		// release memory allocation: "input_r"
-		delete [] tvin_input_r;
-		// release memory allocation: "kernel"
-		delete [] tvin_kernel;
+		// release memory allocation: "input_0"
+		delete [] tvin_input_0;
+		// release memory allocation: "input_1"
+		delete [] tvin_input_1;
+		// release memory allocation: "input_2"
+		delete [] tvin_input_2;
+		// release memory allocation: "input_3"
+		delete [] tvin_input_3;
+		// release memory allocation: "input_4"
+		delete [] tvin_input_4;
+		// release memory allocation: "kernel_0"
+		delete [] tvin_kernel_0;
+		// release memory allocation: "kernel_1"
+		delete [] tvin_kernel_1;
+		// release memory allocation: "kernel_2"
+		delete [] tvin_kernel_2;
 		// release memory allocation: "output_r"
 		delete [] tvin_output_r;
 
