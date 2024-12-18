@@ -1,0 +1,22 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../../conv2D.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'Admin' on host 'desktop-ftkp38h' (Windows NT_amd64 version 6.2) on Wed Dec 18 09:54:45 +0700 2024
+INFO: [HLS 200-10] In directory 'C:/Users/Admin/Downloads/btl/final/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating csim.exe
+Input Matrix:
+1 2 3 0 1 
+4 5 6 1 0 
+7 8 9 0 1 
+1 2 1 2 3 
+0 1 0 2 1 
+
+Output Matrix after Convolution:
+-6 14 16 
+-4 12 12 
+-2 7 5 
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

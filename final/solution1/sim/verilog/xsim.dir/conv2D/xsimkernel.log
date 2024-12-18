@@ -1,0 +1,4 @@
+Running: xsim.dir/conv2D/xsimk.exe -simmode gui -wdb conv2D.wdb -simrunnum 0 -socket 62017
+Design successfully loaded
+Design Loading Memory Usage: 7388 KB (Peak: 7388 KB)
+Design Loading CPU Usage: 93 ms

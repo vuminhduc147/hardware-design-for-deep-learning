@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 24 cycles (II = 24).&#xD;&#xA;Please consider increasing the target initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.616+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 25 cycles (II = 25).&#xD;&#xA;Please consider increasing the target initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.581+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 23 cycles (II = 23).&#xD;&#xA;Please consider increasing the target initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.560+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 27 cycles (II = 27).&#xD;&#xA;Please consider increasing the target initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.535+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 19 cycles (II = 19).&#xD;&#xA;Please consider increasing the target initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.509+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus write on port 'gmem2' (conv2D.c:25) within the last 4 cycles (II = 4).&#xD;&#xA;Please consider increasing the initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.482+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 4 cycles (II = 4).&#xD;&#xA;Please consider increasing the target initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.357+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus write on port 'gmem2' (conv2D.c:25) within the last 3 cycles (II = 3).&#xD;&#xA;Please consider increasing the initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.350+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 3 cycles (II = 3).&#xD;&#xA;Please consider increasing the target initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.327+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus write on port 'gmem2' (conv2D.c:25) within the last 2 cycles (II = 2).&#xD;&#xA;Please consider increasing the initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.320+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 2 cycles (II = 2).&#xD;&#xA;Please consider increasing the target initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.295+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule bus request on port 'gmem0' (conv2D.c:22) due to limited memory ports. Please consider using a memory core with more ports or partitioning the array." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.287+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus write on port 'gmem2' (conv2D.c:25) within the last cycle (II = 1).&#xD;&#xA;Please consider increasing the initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.281+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first cycle (II = 1).&#xD;&#xA;Please consider increasing the target initiation interval of the pipeline." projectName="final" solutionName="solution1" date="2024-12-18T10:09:51.264+0700" type="Warning"/>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'conv2D/output' to 'conv2D/output_r' to avoid the conflict with HDL keywords or other object names." projectName="final" solutionName="solution1" date="2024-12-18T10:09:48.604+0700" type="Warning"/>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'conv2D/input' to 'conv2D/input_r' to avoid the conflict with HDL keywords or other object names." projectName="final" solutionName="solution1" date="2024-12-18T10:09:48.599+0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>
