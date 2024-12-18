@@ -1,5 +1,5 @@
 // ==============================================================
-// File generated on Wed Dec 18 09:59:23 +0700 2024
+// File generated on Wed Dec 18 10:59:51 +0700 2024
 // Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
 // SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 // IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
@@ -549,11 +549,11 @@ void conv2D(int input[5][5],
     }
 }
 
-        void printMatrix(int rows, int cols, int matrix[rows][cols]) {
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < cols; j++) {
-                    printf("%d ", matrix[i][j]);
-                }
-                printf("\n");
-            }
+void printMatrix(int rows, int cols, int matrix[rows][cols]) {
+ for (int i = 0; i < rows; i++) {
+  for (int j = 0; j < cols; j++) {
+   printf("%d ", matrix[i][j]);
         }
+        printf("\n");
+ }
+}

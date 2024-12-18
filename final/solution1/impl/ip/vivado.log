@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Dec 18 12:21:20 2024
+# Process ID: 4632
+# Current directory: C:/Users/Admin/Downloads/btl/final/solution1/impl/ip
+# Command line: vivado.exe -notrace -mode batch -source run_ippack.tcl
+# Log file: C:/Users/Admin/Downloads/btl/final/solution1/impl/ip/vivado.log
+# Journal file: C:/Users/Admin/Downloads/btl/final/solution1/impl/ip\vivado.jou
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+Running package_xo -xo_path C:/Users/Admin/Downloads/btl/conv2D.xo -kernel_name conv2D -kernel_xml C:/Users/Admin/Downloads/btl/final/solution1/impl/ip/../sdaccel/kernel.xml -kernel_files C:/Users/Admin/Downloads/btl/conv2D.c -ip_directory C:/Users/Admin/Downloads/btl/final/solution1/impl/ip -design_xml C:/Users/Admin/Downloads/btl/final/solution1/impl/ip/../../.autopilot/db/conv2D.design.xml -hls_directory C:/Users/Admin/Downloads/btl/final/solution1/impl/ip/hls_files
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 18 12:21:26 2024...

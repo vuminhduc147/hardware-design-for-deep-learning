@@ -1,0 +1,94 @@
+## ==============================================================
+## File generated on Wed Dec 18 11:28:12 +0700 2024
+## Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+## SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+## IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+## Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+## ==============================================================
+
+BEGIN conv2d_conv2d_top
+
+## Peripheral Options
+OPTION IPTYPE = PERIPHERAL
+OPTION IMP_NETLIST = TRUE
+OPTION HDL = VERILOG
+OPTION ARCH_SUPPORT_MAP = (zynq=DEVELOPMENT)
+OPTION IP_GROUP = MICROBLAZE:PPC:USER
+OPTION DESC = conv2d_conv2d_top
+
+# OPTION STYLE = MIX
+# OPTION RUN_NGCBUILD = TRUE
+
+PARAMETER RESET_ACTIVE_LOW = 1, DT = integer, RANGE = (0, 1)
+PORT aclk = "", DIR = I, SIGIS = Clk, ASSIGNMENT = REQUIRE
+PORT aresetn = "", DIR = I, SIGIS = Rst, ASSIGNMENT = REQUIRE
+
+
+#####################Direct Connection##################
+## ap_ctrl
+PORT ap_start = "", DIR = I
+PORT ap_ready = "", DIR = O
+PORT ap_done = "", DIR = O
+PORT ap_idle = "", DIR = O
+########################################################
+
+
+
+#####################Xilinx BRAM########################
+BUS_INTERFACE BUS = input_r_PORTA, BUS_STD = XIL_BRAM, BUS_TYPE = INITIATOR
+BUS_INTERFACE BUS = input_r_PORTB, BUS_STD = XIL_BRAM, BUS_TYPE = INITIATOR
+## Ports
+PORT input_r_Rst_A = BRAM_Rst, DIR = O, BUS = input_r_PORTA
+PORT input_r_Clk_A = BRAM_Clk, DIR = O, BUS = input_r_PORTA
+PORT input_r_EN_A = BRAM_EN, DIR = O, BUS = input_r_PORTA
+PORT input_r_WEN_A = BRAM_WEN, DIR = O, BUS = input_r_PORTA, VEC = [3:0]
+PORT input_r_Addr_A = BRAM_Addr, DIR = O, BUS = input_r_PORTA, VEC = [31:0]
+PORT input_r_Dout_A = BRAM_Dout, DIR = O, BUS = input_r_PORTA, VEC = [31:0]
+PORT input_r_Din_A = BRAM_Din, DIR = I, BUS = input_r_PORTA, VEC = [31:0]
+PORT input_r_Rst_B = BRAM_Rst, DIR = O, BUS = input_r_PORTB
+PORT input_r_Clk_B = BRAM_Clk, DIR = O, BUS = input_r_PORTB
+PORT input_r_EN_B = BRAM_EN, DIR = O, BUS = input_r_PORTB
+PORT input_r_WEN_B = BRAM_WEN, DIR = O, BUS = input_r_PORTB, VEC = [3:0]
+PORT input_r_Addr_B = BRAM_Addr, DIR = O, BUS = input_r_PORTB, VEC = [31:0]
+PORT input_r_Dout_B = BRAM_Dout, DIR = O, BUS = input_r_PORTB, VEC = [31:0]
+PORT input_r_Din_B = BRAM_Din, DIR = I, BUS = input_r_PORTB, VEC = [31:0]
+########################################################
+
+
+
+#####################Xilinx BRAM########################
+BUS_INTERFACE BUS = kernel_PORTA, BUS_STD = XIL_BRAM, BUS_TYPE = INITIATOR
+BUS_INTERFACE BUS = kernel_PORTB, BUS_STD = XIL_BRAM, BUS_TYPE = INITIATOR
+## Ports
+PORT kernel_Rst_A = BRAM_Rst, DIR = O, BUS = kernel_PORTA
+PORT kernel_Clk_A = BRAM_Clk, DIR = O, BUS = kernel_PORTA
+PORT kernel_EN_A = BRAM_EN, DIR = O, BUS = kernel_PORTA
+PORT kernel_WEN_A = BRAM_WEN, DIR = O, BUS = kernel_PORTA, VEC = [3:0]
+PORT kernel_Addr_A = BRAM_Addr, DIR = O, BUS = kernel_PORTA, VEC = [31:0]
+PORT kernel_Dout_A = BRAM_Dout, DIR = O, BUS = kernel_PORTA, VEC = [31:0]
+PORT kernel_Din_A = BRAM_Din, DIR = I, BUS = kernel_PORTA, VEC = [31:0]
+PORT kernel_Rst_B = BRAM_Rst, DIR = O, BUS = kernel_PORTB
+PORT kernel_Clk_B = BRAM_Clk, DIR = O, BUS = kernel_PORTB
+PORT kernel_EN_B = BRAM_EN, DIR = O, BUS = kernel_PORTB
+PORT kernel_WEN_B = BRAM_WEN, DIR = O, BUS = kernel_PORTB, VEC = [3:0]
+PORT kernel_Addr_B = BRAM_Addr, DIR = O, BUS = kernel_PORTB, VEC = [31:0]
+PORT kernel_Dout_B = BRAM_Dout, DIR = O, BUS = kernel_PORTB, VEC = [31:0]
+PORT kernel_Din_B = BRAM_Din, DIR = I, BUS = kernel_PORTB, VEC = [31:0]
+########################################################
+
+
+
+#####################Xilinx BRAM########################
+BUS_INTERFACE BUS = output_r_PORTA, BUS_STD = XIL_BRAM, BUS_TYPE = INITIATOR
+## Ports
+PORT output_r_Rst_A = BRAM_Rst, DIR = O, BUS = output_r_PORTA
+PORT output_r_Clk_A = BRAM_Clk, DIR = O, BUS = output_r_PORTA
+PORT output_r_EN_A = BRAM_EN, DIR = O, BUS = output_r_PORTA
+PORT output_r_WEN_A = BRAM_WEN, DIR = O, BUS = output_r_PORTA, VEC = [3:0]
+PORT output_r_Addr_A = BRAM_Addr, DIR = O, BUS = output_r_PORTA, VEC = [31:0]
+PORT output_r_Dout_A = BRAM_Dout, DIR = O, BUS = output_r_PORTA, VEC = [31:0]
+PORT output_r_Din_A = BRAM_Din, DIR = I, BUS = output_r_PORTA, VEC = [31:0]
+########################################################
+
+
+END

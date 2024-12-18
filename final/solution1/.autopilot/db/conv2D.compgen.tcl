@@ -97,7 +97,7 @@ ap_start { }
 ap_done { }
 ap_ready { }
 ap_idle { }
-input_r { 
+input_0 { 
 	dir I
 	width 64
 	depth 1
@@ -105,7 +105,7 @@ input_r {
 	offset 16
 	offset_end 27
 }
-kernel { 
+input_1 { 
 	dir I
 	width 64
 	depth 1
@@ -113,13 +113,61 @@ kernel {
 	offset 28
 	offset_end 39
 }
-output_r { 
+input_2 { 
 	dir I
 	width 64
 	depth 1
 	mode ap_none
 	offset 40
 	offset_end 51
+}
+input_3 { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 52
+	offset_end 63
+}
+input_4 { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 64
+	offset_end 75
+}
+kernel_0 { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 76
+	offset_end 87
+}
+kernel_1 { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 88
+	offset_end 99
+}
+kernel_2 { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 100
+	offset_end 111
+}
+output_r { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 112
+	offset_end 123
 }
 }
 

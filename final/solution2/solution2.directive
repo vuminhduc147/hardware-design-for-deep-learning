@@ -1,0 +1,29 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="conv2D" label="conv2D_label1" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="conv2D" label="conv2D_label2" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="conv2D" label="conv2D_label3" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="conv2D" label="conv2D_label4" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="conv2D" label="conv2D_label1" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="conv2D" label="conv2D_label2" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="conv2D" label="conv2D_label3" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="conv2D" label="conv2D_label8" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
+

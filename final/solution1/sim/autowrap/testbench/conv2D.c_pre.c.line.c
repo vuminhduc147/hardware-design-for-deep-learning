@@ -542,11 +542,11 @@ void conv2D(int input[5][5],
     }
 }
 #pragma empty_line
-        void printMatrix(int rows, int cols, int matrix[rows][cols]) {
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < cols; j++) {
-                    printf("%d ", matrix[i][j]);
-                }
-                printf("\n");
-            }
+void printMatrix(int rows, int cols, int matrix[rows][cols]) {
+ for (int i = 0; i < rows; i++) {
+  for (int j = 0; j < cols; j++) {
+   printf("%d ", matrix[i][j]);
         }
+        printf("\n");
+ }
+}

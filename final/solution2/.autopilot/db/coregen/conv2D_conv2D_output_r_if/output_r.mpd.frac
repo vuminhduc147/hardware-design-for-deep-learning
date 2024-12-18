@@ -1,0 +1,13 @@
+
+#####################Xilinx BRAM########################
+BUS_INTERFACE BUS = output_r_PORTA, BUS_STD = XIL_BRAM, BUS_TYPE = INITIATOR
+## Ports
+PORT output_r_Rst_A = BRAM_Rst, DIR = O, BUS = output_r_PORTA
+PORT output_r_Clk_A = BRAM_Clk, DIR = O, BUS = output_r_PORTA
+PORT output_r_EN_A = BRAM_EN, DIR = O, BUS = output_r_PORTA
+PORT output_r_WEN_A = BRAM_WEN, DIR = O, BUS = output_r_PORTA, VEC = [3:0]
+PORT output_r_Addr_A = BRAM_Addr, DIR = O, BUS = output_r_PORTA, VEC = [31:0]
+PORT output_r_Dout_A = BRAM_Dout, DIR = O, BUS = output_r_PORTA, VEC = [31:0]
+PORT output_r_Din_A = BRAM_Din, DIR = I, BUS = output_r_PORTA, VEC = [31:0]
+########################################################
+

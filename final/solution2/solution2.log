@@ -1,0 +1,445 @@
+==============================================================
+File generated on Wed Dec 18 11:13:32 +0700 2024
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 2.7ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=0
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty 27%
+INFO: [XFORM 203-1161] The maximum of name length is set into 256.
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 64 or its parent loop when its trip count is less than or equal 64.
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty 27%
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 64 or its parent loop when its trip count is less than or equal 64.
+INFO: [XFORM 203-1161] The maximum of name length is set into 256.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'conv2D.c' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 104.469 ; gain = 19.840
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 104.469 ; gain = 19.840
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 106.145 ; gain = 21.516
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 106.145 ; gain = 21.516
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'conv2D' (conv2D.c:4).
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'conv2D_label1' (conv2D.c:15) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'conv2D_label2' (conv2D.c:16) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'conv2D_label3' (conv2D.c:18) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'conv2D_label8' (conv2D.c:20) because its parent loop or function is pipelined.
+INFO: [HLS 200-489] Unrolling loop 'conv2D_label1' (conv2D.c:15) in function 'conv2D' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'conv2D_label2' (conv2D.c:16) in function 'conv2D' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'conv2D_label3' (conv2D.c:18) in function 'conv2D' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'conv2D_label8' (conv2D.c:20) in function 'conv2D' completely with a factor of 3.
+INFO: [XFORM 203-11] Balancing expressions in function 'conv2D' (conv2D.c:4)...72 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 127.289 ; gain = 42.660
+INFO: [XFORM 203-811] Inferring bus burst write of length 9 on port 'gmem2' (conv2D.c:25:13).
+INFO: [XFORM 203-811] Inferring bus burst read of length 9 on port 'gmem1' (conv2D.c:22:2).
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 127.289 ; gain = 42.660
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'conv2D' ...
+WARNING: [SYN 201-107] Renaming port name 'conv2D/input' to 'conv2D/input_r' to avoid the conflict with HDL keywords or other object names.
+WARNING: [SYN 201-107] Renaming port name 'conv2D/output' to 'conv2D/output_r' to avoid the conflict with HDL keywords or other object names.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv2D' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_s) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_1_1) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining function 'conv2D'.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first cycle (II = 1).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus write on port 'gmem2' (conv2D.c:25) within the last cycle (II = 1).
+Please consider increasing the initiation interval of the pipeline.
+WARNING: [SCHED 204-69] Unable to schedule bus request on port 'gmem0' (conv2D.c:22) due to limited memory ports. Please consider using a memory core with more ports or partitioning the array.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 2 cycles (II = 2).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus write on port 'gmem2' (conv2D.c:25) within the last 2 cycles (II = 2).
+Please consider increasing the initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 3 cycles (II = 3).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus write on port 'gmem2' (conv2D.c:25) within the last 3 cycles (II = 3).
+Please consider increasing the initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 4 cycles (II = 4).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus write on port 'gmem2' (conv2D.c:25) within the last 4 cycles (II = 4).
+Please consider increasing the initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 19 cycles (II = 19).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 27 cycles (II = 27).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 23 cycles (II = 23).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 25 cycles (II = 25).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 24 cycles (II = 24).
+Please consider increasing the target initiation interval of the pipeline.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 25, Depth = 46.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 6.865 seconds; current allocated memory: 81.435 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.483 seconds; current allocated memory: 83.613 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv2D' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/gmem0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/gmem1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/gmem2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/input_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/kernel' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/output_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'conv2D' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return', 'input_r', 'kernel' and 'output_r' to AXI-Lite port AXILiteS.
+INFO: [RTGEN 206-100] Generating core module 'conv2D_mul_32s_32s_32_4_1': 81 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv2D'.
+INFO: [HLS 200-111]  Elapsed time: 0.822 seconds; current allocated memory: 88.658 MB.
+INFO: [RTMG 210-282] Generating pipelined core: 'conv2D_conv2D_mul_32s_32s_32_4_1_Mul4S_0'
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:06 ; elapsed = 00:00:12 . Memory (MB): peak = 149.070 ; gain = 64.441
+INFO: [SYSC 207-301] Generating SystemC RTL for conv2D with prefix conv2D_.
+INFO: [VHDL 208-304] Generating VHDL RTL for conv2D with prefix conv2D_.
+INFO: [VLOG 209-307] Generating Verilog RTL for conv2D with prefix conv2D_.
+INFO: [HLS 200-112] Total elapsed time: 11.671 seconds; peak allocated memory: 88.658 MB.
+==============================================================
+File generated on Wed Dec 18 11:14:02 +0700 2024
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 2.7ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=0
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty 27%
+INFO: [XFORM 203-1161] The maximum of name length is set into 256.
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 64 or its parent loop when its trip count is less than or equal 64.
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty 27%
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 64 or its parent loop when its trip count is less than or equal 64.
+INFO: [XFORM 203-1161] The maximum of name length is set into 256.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'conv2D.c' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 104.359 ; gain = 19.441
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 104.359 ; gain = 19.441
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 105.973 ; gain = 21.055
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 106.227 ; gain = 21.309
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'conv2D' (conv2D.c:4).
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'conv2D_label1' (conv2D.c:15) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'conv2D_label2' (conv2D.c:16) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'conv2D_label3' (conv2D.c:18) because its parent loop or function is pipelined.
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'conv2D_label4' (conv2D.c:20) because its parent loop or function is pipelined.
+INFO: [HLS 200-489] Unrolling loop 'conv2D_label1' (conv2D.c:15) in function 'conv2D' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'conv2D_label2' (conv2D.c:16) in function 'conv2D' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'conv2D_label3' (conv2D.c:18) in function 'conv2D' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'conv2D_label4' (conv2D.c:20) in function 'conv2D' completely with a factor of 3.
+INFO: [XFORM 203-11] Balancing expressions in function 'conv2D' (conv2D.c:4)...72 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 126.781 ; gain = 41.863
+INFO: [XFORM 203-811] Inferring bus burst read of length 9 on port 'gmem1' (conv2D.c:22:2).
+INFO: [XFORM 203-811] Inferring bus burst write of length 9 on port 'gmem2' (conv2D.c:25:13).
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 126.781 ; gain = 41.863
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'conv2D' ...
+WARNING: [SYN 201-107] Renaming port name 'conv2D/input' to 'conv2D/input_r' to avoid the conflict with HDL keywords or other object names.
+WARNING: [SYN 201-107] Renaming port name 'conv2D/output' to 'conv2D/output_r' to avoid the conflict with HDL keywords or other object names.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv2D' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_0_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_0_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_s) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_0_1_1) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining function 'conv2D'.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first cycle (II = 1).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus write on port 'gmem2' (conv2D.c:25) within the last cycle (II = 1).
+Please consider increasing the initiation interval of the pipeline.
+WARNING: [SCHED 204-69] Unable to schedule bus request on port 'gmem0' (conv2D.c:22) due to limited memory ports. Please consider using a memory core with more ports or partitioning the array.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 2 cycles (II = 2).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus write on port 'gmem2' (conv2D.c:25) within the last 2 cycles (II = 2).
+Please consider increasing the initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 3 cycles (II = 3).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus write on port 'gmem2' (conv2D.c:25) within the last 3 cycles (II = 3).
+Please consider increasing the initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 4 cycles (II = 4).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus write on port 'gmem2' (conv2D.c:25) within the last 4 cycles (II = 4).
+Please consider increasing the initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 19 cycles (II = 19).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 27 cycles (II = 27).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 23 cycles (II = 23).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 25 cycles (II = 25).
+Please consider increasing the target initiation interval of the pipeline.
+WARNING: [SCHED 204-63] Unable to schedule bus read on port 'gmem0' (conv2D.c:22) within the first 24 cycles (II = 24).
+Please consider increasing the target initiation interval of the pipeline.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 25, Depth = 46.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 6.763 seconds; current allocated memory: 81.435 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.469 seconds; current allocated memory: 83.613 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv2D' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/gmem0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/gmem1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/gmem2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/input_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/kernel' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/output_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'conv2D' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return', 'input_r', 'kernel' and 'output_r' to AXI-Lite port AXILiteS.
+INFO: [RTGEN 206-100] Generating core module 'conv2D_mul_32s_32s_32_4_1': 81 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv2D'.
+INFO: [HLS 200-111]  Elapsed time: 0.803 seconds; current allocated memory: 88.658 MB.
+INFO: [RTMG 210-282] Generating pipelined core: 'conv2D_conv2D_mul_32s_32s_32_4_1_Mul4S_0'
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:06 ; elapsed = 00:00:12 . Memory (MB): peak = 148.863 ; gain = 63.945
+INFO: [SYSC 207-301] Generating SystemC RTL for conv2D with prefix conv2D_.
+INFO: [VHDL 208-304] Generating VHDL RTL for conv2D with prefix conv2D_.
+INFO: [VLOG 209-307] Generating Verilog RTL for conv2D with prefix conv2D_.
+INFO: [HLS 200-112] Total elapsed time: 11.578 seconds; peak allocated memory: 88.658 MB.
+==============================================================
+File generated on Wed Dec 18 11:28:05 +0700 2024
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 2.7ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=0
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty 27%
+INFO: [XFORM 203-1161] The maximum of name length is set into 256.
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 64 or its parent loop when its trip count is less than or equal 64.
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty 27%
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 64 or its parent loop when its trip count is less than or equal 64.
+INFO: [XFORM 203-1161] The maximum of name length is set into 256.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'conv2D.c' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 104.348 ; gain = 19.242
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 104.348 ; gain = 19.242
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 105.684 ; gain = 20.578
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 105.938 ; gain = 20.832
+INFO: [XFORM 203-510] Pipelining loop 'Loop-2.1' (conv2D.c:11) in function 'conv2D' automatically.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Loop-1.1' (conv2D.c:11) in function 'conv2D' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (conv2D.c:13) in function 'conv2D' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1.1' (conv2D.c:14) in function 'conv2D' completely with a factor of 3.
+INFO: [XFORM 203-11] Balancing expressions in function 'conv2D' (conv2D.c:4)...8 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 127.676 ; gain = 42.570
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (conv2D.c:10:19) in function 'conv2D'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 127.676 ; gain = 42.570
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'conv2D' ...
+WARNING: [SYN 201-107] Renaming port name 'conv2D/input' to 'conv2D/input_r' to avoid the conflict with HDL keywords or other object names.
+WARNING: [SYN 201-107] Renaming port name 'conv2D/output' to 'conv2D/output_r' to avoid the conflict with HDL keywords or other object names.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv2D' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_0_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP48 latency (root=tmp_1_1_1) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('kernel_load_8', conv2D.c:15) on array 'kernel' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'kernel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 5, Depth = 13.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 6.119 seconds; current allocated memory: 77.843 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.165 seconds; current allocated memory: 78.405 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv2D' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/input_r' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/kernel' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'conv2D/output_r' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'conv2D' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Generating core module 'conv2D_mul_32s_32s_32_4_1': 9 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv2D'.
+INFO: [HLS 200-111]  Elapsed time: 0.259 seconds; current allocated memory: 79.410 MB.
+INFO: [RTMG 210-282] Generating pipelined core: 'conv2D_conv2D_mul_32s_32s_32_4_1_Mul4S_0'
+ERROR: [IMPL 213-400] The Vivado HLS generated IP does not comply with SDAccel integration requirements. Check interface pragmas to ensure the design only uses one s_axilite interface including the 'return' port and one or more m_axi interfaces with offset=slave set to the s_axilite interface; there should not be any other port interface used.
+ERROR: [HLS 200-445] Unexpected error generating RTL model: generate_json error: Found feature incompatible with SDX target
+INFO: [HLS 200-112] Total elapsed time: 8.216 seconds; peak allocated memory: 79.410 MB.

@@ -1,0 +1,21 @@
+
+#####################Xilinx BRAM########################
+BUS_INTERFACE BUS = input_r_PORTA, BUS_STD = XIL_BRAM, BUS_TYPE = INITIATOR
+BUS_INTERFACE BUS = input_r_PORTB, BUS_STD = XIL_BRAM, BUS_TYPE = INITIATOR
+## Ports
+PORT input_r_Rst_A = BRAM_Rst, DIR = O, BUS = input_r_PORTA
+PORT input_r_Clk_A = BRAM_Clk, DIR = O, BUS = input_r_PORTA
+PORT input_r_EN_A = BRAM_EN, DIR = O, BUS = input_r_PORTA
+PORT input_r_WEN_A = BRAM_WEN, DIR = O, BUS = input_r_PORTA, VEC = [3:0]
+PORT input_r_Addr_A = BRAM_Addr, DIR = O, BUS = input_r_PORTA, VEC = [31:0]
+PORT input_r_Dout_A = BRAM_Dout, DIR = O, BUS = input_r_PORTA, VEC = [31:0]
+PORT input_r_Din_A = BRAM_Din, DIR = I, BUS = input_r_PORTA, VEC = [31:0]
+PORT input_r_Rst_B = BRAM_Rst, DIR = O, BUS = input_r_PORTB
+PORT input_r_Clk_B = BRAM_Clk, DIR = O, BUS = input_r_PORTB
+PORT input_r_EN_B = BRAM_EN, DIR = O, BUS = input_r_PORTB
+PORT input_r_WEN_B = BRAM_WEN, DIR = O, BUS = input_r_PORTB, VEC = [3:0]
+PORT input_r_Addr_B = BRAM_Addr, DIR = O, BUS = input_r_PORTB, VEC = [31:0]
+PORT input_r_Dout_B = BRAM_Dout, DIR = O, BUS = input_r_PORTB, VEC = [31:0]
+PORT input_r_Din_B = BRAM_Din, DIR = I, BUS = input_r_PORTB, VEC = [31:0]
+########################################################
+

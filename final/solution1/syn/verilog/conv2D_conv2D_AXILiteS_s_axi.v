@@ -1,5 +1,5 @@
 // ==============================================================
-// File generated on Wed Dec 18 10:09:57 +0700 2024
+// File generated on Wed Dec 18 12:19:51 +0700 2024
 // Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
 // SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 // IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
@@ -8,7 +8,7 @@
 `timescale 1ns/1ps
 module conv2D_conv2D_AXILiteS_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 6,
+    C_S_AXI_ADDR_WIDTH = 7,
     C_S_AXI_DATA_WIDTH = 32
 )(
     // axi4 lite slave signals
@@ -38,8 +38,14 @@ module conv2D_conv2D_AXILiteS_s_axi
     input  wire                          ap_done,
     input  wire                          ap_ready,
     input  wire                          ap_idle,
-    output wire [63:0]                   input_r,
-    output wire [63:0]                   kernel,
+    output wire [63:0]                   input_0,
+    output wire [63:0]                   input_1,
+    output wire [63:0]                   input_2,
+    output wire [63:0]                   input_3,
+    output wire [63:0]                   input_4,
+    output wire [63:0]                   kernel_0,
+    output wire [63:0]                   kernel_1,
+    output wire [63:0]                   kernel_2,
     output wire [63:0]                   output_r
 );
 //------------------------Address Info-------------------
@@ -61,38 +67,86 @@ module conv2D_conv2D_AXILiteS_s_axi
 //        bit 0  - Channel 0 (ap_done)
 //        bit 1  - Channel 1 (ap_ready)
 //        others - reserved
-// 0x10 : Data signal of input_r
-//        bit 31~0 - input_r[31:0] (Read/Write)
-// 0x14 : Data signal of input_r
-//        bit 31~0 - input_r[63:32] (Read/Write)
+// 0x10 : Data signal of input_0
+//        bit 31~0 - input_0[31:0] (Read/Write)
+// 0x14 : Data signal of input_0
+//        bit 31~0 - input_0[63:32] (Read/Write)
 // 0x18 : reserved
-// 0x1c : Data signal of kernel
-//        bit 31~0 - kernel[31:0] (Read/Write)
-// 0x20 : Data signal of kernel
-//        bit 31~0 - kernel[63:32] (Read/Write)
+// 0x1c : Data signal of input_1
+//        bit 31~0 - input_1[31:0] (Read/Write)
+// 0x20 : Data signal of input_1
+//        bit 31~0 - input_1[63:32] (Read/Write)
 // 0x24 : reserved
-// 0x28 : Data signal of output_r
-//        bit 31~0 - output_r[31:0] (Read/Write)
-// 0x2c : Data signal of output_r
-//        bit 31~0 - output_r[63:32] (Read/Write)
+// 0x28 : Data signal of input_2
+//        bit 31~0 - input_2[31:0] (Read/Write)
+// 0x2c : Data signal of input_2
+//        bit 31~0 - input_2[63:32] (Read/Write)
 // 0x30 : reserved
+// 0x34 : Data signal of input_3
+//        bit 31~0 - input_3[31:0] (Read/Write)
+// 0x38 : Data signal of input_3
+//        bit 31~0 - input_3[63:32] (Read/Write)
+// 0x3c : reserved
+// 0x40 : Data signal of input_4
+//        bit 31~0 - input_4[31:0] (Read/Write)
+// 0x44 : Data signal of input_4
+//        bit 31~0 - input_4[63:32] (Read/Write)
+// 0x48 : reserved
+// 0x4c : Data signal of kernel_0
+//        bit 31~0 - kernel_0[31:0] (Read/Write)
+// 0x50 : Data signal of kernel_0
+//        bit 31~0 - kernel_0[63:32] (Read/Write)
+// 0x54 : reserved
+// 0x58 : Data signal of kernel_1
+//        bit 31~0 - kernel_1[31:0] (Read/Write)
+// 0x5c : Data signal of kernel_1
+//        bit 31~0 - kernel_1[63:32] (Read/Write)
+// 0x60 : reserved
+// 0x64 : Data signal of kernel_2
+//        bit 31~0 - kernel_2[31:0] (Read/Write)
+// 0x68 : Data signal of kernel_2
+//        bit 31~0 - kernel_2[63:32] (Read/Write)
+// 0x6c : reserved
+// 0x70 : Data signal of output_r
+//        bit 31~0 - output_r[31:0] (Read/Write)
+// 0x74 : Data signal of output_r
+//        bit 31~0 - output_r[63:32] (Read/Write)
+// 0x78 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL         = 6'h00,
-    ADDR_GIE             = 6'h04,
-    ADDR_IER             = 6'h08,
-    ADDR_ISR             = 6'h0c,
-    ADDR_INPUT_R_DATA_0  = 6'h10,
-    ADDR_INPUT_R_DATA_1  = 6'h14,
-    ADDR_INPUT_R_CTRL    = 6'h18,
-    ADDR_KERNEL_DATA_0   = 6'h1c,
-    ADDR_KERNEL_DATA_1   = 6'h20,
-    ADDR_KERNEL_CTRL     = 6'h24,
-    ADDR_OUTPUT_R_DATA_0 = 6'h28,
-    ADDR_OUTPUT_R_DATA_1 = 6'h2c,
-    ADDR_OUTPUT_R_CTRL   = 6'h30,
+    ADDR_AP_CTRL         = 7'h00,
+    ADDR_GIE             = 7'h04,
+    ADDR_IER             = 7'h08,
+    ADDR_ISR             = 7'h0c,
+    ADDR_INPUT_0_DATA_0  = 7'h10,
+    ADDR_INPUT_0_DATA_1  = 7'h14,
+    ADDR_INPUT_0_CTRL    = 7'h18,
+    ADDR_INPUT_1_DATA_0  = 7'h1c,
+    ADDR_INPUT_1_DATA_1  = 7'h20,
+    ADDR_INPUT_1_CTRL    = 7'h24,
+    ADDR_INPUT_2_DATA_0  = 7'h28,
+    ADDR_INPUT_2_DATA_1  = 7'h2c,
+    ADDR_INPUT_2_CTRL    = 7'h30,
+    ADDR_INPUT_3_DATA_0  = 7'h34,
+    ADDR_INPUT_3_DATA_1  = 7'h38,
+    ADDR_INPUT_3_CTRL    = 7'h3c,
+    ADDR_INPUT_4_DATA_0  = 7'h40,
+    ADDR_INPUT_4_DATA_1  = 7'h44,
+    ADDR_INPUT_4_CTRL    = 7'h48,
+    ADDR_KERNEL_0_DATA_0 = 7'h4c,
+    ADDR_KERNEL_0_DATA_1 = 7'h50,
+    ADDR_KERNEL_0_CTRL   = 7'h54,
+    ADDR_KERNEL_1_DATA_0 = 7'h58,
+    ADDR_KERNEL_1_DATA_1 = 7'h5c,
+    ADDR_KERNEL_1_CTRL   = 7'h60,
+    ADDR_KERNEL_2_DATA_0 = 7'h64,
+    ADDR_KERNEL_2_DATA_1 = 7'h68,
+    ADDR_KERNEL_2_CTRL   = 7'h6c,
+    ADDR_OUTPUT_R_DATA_0 = 7'h70,
+    ADDR_OUTPUT_R_DATA_1 = 7'h74,
+    ADDR_OUTPUT_R_CTRL   = 7'h78,
     WRIDLE               = 2'd0,
     WRDATA               = 2'd1,
     WRRESP               = 2'd2,
@@ -100,7 +154,7 @@ localparam
     RDIDLE               = 2'd0,
     RDDATA               = 2'd1,
     RDRESET              = 2'd2,
-    ADDR_BITS         = 6;
+    ADDR_BITS         = 7;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
@@ -123,8 +177,14 @@ localparam
     reg                           int_gie = 1'b0;
     reg  [1:0]                    int_ier = 2'b0;
     reg  [1:0]                    int_isr = 2'b0;
-    reg  [63:0]                   int_input_r = 'b0;
-    reg  [63:0]                   int_kernel = 'b0;
+    reg  [63:0]                   int_input_0 = 'b0;
+    reg  [63:0]                   int_input_1 = 'b0;
+    reg  [63:0]                   int_input_2 = 'b0;
+    reg  [63:0]                   int_input_3 = 'b0;
+    reg  [63:0]                   int_input_4 = 'b0;
+    reg  [63:0]                   int_kernel_0 = 'b0;
+    reg  [63:0]                   int_kernel_1 = 'b0;
+    reg  [63:0]                   int_kernel_2 = 'b0;
     reg  [63:0]                   int_output_r = 'b0;
 
 //------------------------Instantiation------------------
@@ -233,17 +293,53 @@ always @(posedge ACLK) begin
                 ADDR_ISR: begin
                     rdata <= int_isr;
                 end
-                ADDR_INPUT_R_DATA_0: begin
-                    rdata <= int_input_r[31:0];
+                ADDR_INPUT_0_DATA_0: begin
+                    rdata <= int_input_0[31:0];
                 end
-                ADDR_INPUT_R_DATA_1: begin
-                    rdata <= int_input_r[63:32];
+                ADDR_INPUT_0_DATA_1: begin
+                    rdata <= int_input_0[63:32];
                 end
-                ADDR_KERNEL_DATA_0: begin
-                    rdata <= int_kernel[31:0];
+                ADDR_INPUT_1_DATA_0: begin
+                    rdata <= int_input_1[31:0];
                 end
-                ADDR_KERNEL_DATA_1: begin
-                    rdata <= int_kernel[63:32];
+                ADDR_INPUT_1_DATA_1: begin
+                    rdata <= int_input_1[63:32];
+                end
+                ADDR_INPUT_2_DATA_0: begin
+                    rdata <= int_input_2[31:0];
+                end
+                ADDR_INPUT_2_DATA_1: begin
+                    rdata <= int_input_2[63:32];
+                end
+                ADDR_INPUT_3_DATA_0: begin
+                    rdata <= int_input_3[31:0];
+                end
+                ADDR_INPUT_3_DATA_1: begin
+                    rdata <= int_input_3[63:32];
+                end
+                ADDR_INPUT_4_DATA_0: begin
+                    rdata <= int_input_4[31:0];
+                end
+                ADDR_INPUT_4_DATA_1: begin
+                    rdata <= int_input_4[63:32];
+                end
+                ADDR_KERNEL_0_DATA_0: begin
+                    rdata <= int_kernel_0[31:0];
+                end
+                ADDR_KERNEL_0_DATA_1: begin
+                    rdata <= int_kernel_0[63:32];
+                end
+                ADDR_KERNEL_1_DATA_0: begin
+                    rdata <= int_kernel_1[31:0];
+                end
+                ADDR_KERNEL_1_DATA_1: begin
+                    rdata <= int_kernel_1[63:32];
+                end
+                ADDR_KERNEL_2_DATA_0: begin
+                    rdata <= int_kernel_2[31:0];
+                end
+                ADDR_KERNEL_2_DATA_1: begin
+                    rdata <= int_kernel_2[63:32];
                 end
                 ADDR_OUTPUT_R_DATA_0: begin
                     rdata <= int_output_r[31:0];
@@ -260,8 +356,14 @@ end
 //------------------------Register logic-----------------
 assign interrupt = int_gie & (|int_isr);
 assign ap_start  = int_ap_start;
-assign input_r   = int_input_r;
-assign kernel    = int_kernel;
+assign input_0   = int_input_0;
+assign input_1   = int_input_1;
+assign input_2   = int_input_2;
+assign input_3   = int_input_3;
+assign input_4   = int_input_4;
+assign kernel_0  = int_kernel_0;
+assign kernel_1  = int_kernel_1;
+assign kernel_2  = int_kernel_2;
 assign output_r  = int_output_r;
 // int_ap_start
 always @(posedge ACLK) begin
@@ -359,43 +461,163 @@ always @(posedge ACLK) begin
     end
 end
 
-// int_input_r[31:0]
+// int_input_0[31:0]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_input_r[31:0] <= 0;
+        int_input_0[31:0] <= 0;
     else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_INPUT_R_DATA_0)
-            int_input_r[31:0] <= (WDATA[31:0] & wmask) | (int_input_r[31:0] & ~wmask);
+        if (w_hs && waddr == ADDR_INPUT_0_DATA_0)
+            int_input_0[31:0] <= (WDATA[31:0] & wmask) | (int_input_0[31:0] & ~wmask);
     end
 end
 
-// int_input_r[63:32]
+// int_input_0[63:32]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_input_r[63:32] <= 0;
+        int_input_0[63:32] <= 0;
     else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_INPUT_R_DATA_1)
-            int_input_r[63:32] <= (WDATA[31:0] & wmask) | (int_input_r[63:32] & ~wmask);
+        if (w_hs && waddr == ADDR_INPUT_0_DATA_1)
+            int_input_0[63:32] <= (WDATA[31:0] & wmask) | (int_input_0[63:32] & ~wmask);
     end
 end
 
-// int_kernel[31:0]
+// int_input_1[31:0]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_kernel[31:0] <= 0;
+        int_input_1[31:0] <= 0;
     else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_KERNEL_DATA_0)
-            int_kernel[31:0] <= (WDATA[31:0] & wmask) | (int_kernel[31:0] & ~wmask);
+        if (w_hs && waddr == ADDR_INPUT_1_DATA_0)
+            int_input_1[31:0] <= (WDATA[31:0] & wmask) | (int_input_1[31:0] & ~wmask);
     end
 end
 
-// int_kernel[63:32]
+// int_input_1[63:32]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_kernel[63:32] <= 0;
+        int_input_1[63:32] <= 0;
     else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_KERNEL_DATA_1)
-            int_kernel[63:32] <= (WDATA[31:0] & wmask) | (int_kernel[63:32] & ~wmask);
+        if (w_hs && waddr == ADDR_INPUT_1_DATA_1)
+            int_input_1[63:32] <= (WDATA[31:0] & wmask) | (int_input_1[63:32] & ~wmask);
+    end
+end
+
+// int_input_2[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_input_2[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_INPUT_2_DATA_0)
+            int_input_2[31:0] <= (WDATA[31:0] & wmask) | (int_input_2[31:0] & ~wmask);
+    end
+end
+
+// int_input_2[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_input_2[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_INPUT_2_DATA_1)
+            int_input_2[63:32] <= (WDATA[31:0] & wmask) | (int_input_2[63:32] & ~wmask);
+    end
+end
+
+// int_input_3[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_input_3[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_INPUT_3_DATA_0)
+            int_input_3[31:0] <= (WDATA[31:0] & wmask) | (int_input_3[31:0] & ~wmask);
+    end
+end
+
+// int_input_3[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_input_3[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_INPUT_3_DATA_1)
+            int_input_3[63:32] <= (WDATA[31:0] & wmask) | (int_input_3[63:32] & ~wmask);
+    end
+end
+
+// int_input_4[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_input_4[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_INPUT_4_DATA_0)
+            int_input_4[31:0] <= (WDATA[31:0] & wmask) | (int_input_4[31:0] & ~wmask);
+    end
+end
+
+// int_input_4[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_input_4[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_INPUT_4_DATA_1)
+            int_input_4[63:32] <= (WDATA[31:0] & wmask) | (int_input_4[63:32] & ~wmask);
+    end
+end
+
+// int_kernel_0[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_kernel_0[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_KERNEL_0_DATA_0)
+            int_kernel_0[31:0] <= (WDATA[31:0] & wmask) | (int_kernel_0[31:0] & ~wmask);
+    end
+end
+
+// int_kernel_0[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_kernel_0[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_KERNEL_0_DATA_1)
+            int_kernel_0[63:32] <= (WDATA[31:0] & wmask) | (int_kernel_0[63:32] & ~wmask);
+    end
+end
+
+// int_kernel_1[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_kernel_1[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_KERNEL_1_DATA_0)
+            int_kernel_1[31:0] <= (WDATA[31:0] & wmask) | (int_kernel_1[31:0] & ~wmask);
+    end
+end
+
+// int_kernel_1[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_kernel_1[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_KERNEL_1_DATA_1)
+            int_kernel_1[63:32] <= (WDATA[31:0] & wmask) | (int_kernel_1[63:32] & ~wmask);
+    end
+end
+
+// int_kernel_2[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_kernel_2[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_KERNEL_2_DATA_0)
+            int_kernel_2[31:0] <= (WDATA[31:0] & wmask) | (int_kernel_2[31:0] & ~wmask);
+    end
+end
+
+// int_kernel_2[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_kernel_2[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_KERNEL_2_DATA_1)
+            int_kernel_2[63:32] <= (WDATA[31:0] & wmask) | (int_kernel_2[63:32] & ~wmask);
     end
 end
 

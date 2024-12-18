@@ -1,5 +1,5 @@
 -- ==============================================================
--- File generated on Wed Dec 18 10:09:57 +0700 2024
+-- File generated on Wed Dec 18 12:19:51 +0700 2024
 -- Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
 -- SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 -- IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
@@ -11,7 +11,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity conv2D_conv2D_AXILiteS_s_axi is
 generic (
-    C_S_AXI_ADDR_WIDTH    : INTEGER := 6;
+    C_S_AXI_ADDR_WIDTH    : INTEGER := 7;
     C_S_AXI_DATA_WIDTH    : INTEGER := 32);
 port (
     -- axi4 lite slave signals
@@ -41,8 +41,14 @@ port (
     ap_done               :in   STD_LOGIC;
     ap_ready              :in   STD_LOGIC;
     ap_idle               :in   STD_LOGIC;
-    input_r               :out  STD_LOGIC_VECTOR(63 downto 0);
-    kernel                :out  STD_LOGIC_VECTOR(63 downto 0);
+    input_0               :out  STD_LOGIC_VECTOR(63 downto 0);
+    input_1               :out  STD_LOGIC_VECTOR(63 downto 0);
+    input_2               :out  STD_LOGIC_VECTOR(63 downto 0);
+    input_3               :out  STD_LOGIC_VECTOR(63 downto 0);
+    input_4               :out  STD_LOGIC_VECTOR(63 downto 0);
+    kernel_0              :out  STD_LOGIC_VECTOR(63 downto 0);
+    kernel_1              :out  STD_LOGIC_VECTOR(63 downto 0);
+    kernel_2              :out  STD_LOGIC_VECTOR(63 downto 0);
     output_r              :out  STD_LOGIC_VECTOR(63 downto 0)
 );
 end entity conv2D_conv2D_AXILiteS_s_axi;
@@ -66,21 +72,51 @@ end entity conv2D_conv2D_AXILiteS_s_axi;
 --        bit 0  - Channel 0 (ap_done)
 --        bit 1  - Channel 1 (ap_ready)
 --        others - reserved
--- 0x10 : Data signal of input_r
---        bit 31~0 - input_r[31:0] (Read/Write)
--- 0x14 : Data signal of input_r
---        bit 31~0 - input_r[63:32] (Read/Write)
+-- 0x10 : Data signal of input_0
+--        bit 31~0 - input_0[31:0] (Read/Write)
+-- 0x14 : Data signal of input_0
+--        bit 31~0 - input_0[63:32] (Read/Write)
 -- 0x18 : reserved
--- 0x1c : Data signal of kernel
---        bit 31~0 - kernel[31:0] (Read/Write)
--- 0x20 : Data signal of kernel
---        bit 31~0 - kernel[63:32] (Read/Write)
+-- 0x1c : Data signal of input_1
+--        bit 31~0 - input_1[31:0] (Read/Write)
+-- 0x20 : Data signal of input_1
+--        bit 31~0 - input_1[63:32] (Read/Write)
 -- 0x24 : reserved
--- 0x28 : Data signal of output_r
---        bit 31~0 - output_r[31:0] (Read/Write)
--- 0x2c : Data signal of output_r
---        bit 31~0 - output_r[63:32] (Read/Write)
+-- 0x28 : Data signal of input_2
+--        bit 31~0 - input_2[31:0] (Read/Write)
+-- 0x2c : Data signal of input_2
+--        bit 31~0 - input_2[63:32] (Read/Write)
 -- 0x30 : reserved
+-- 0x34 : Data signal of input_3
+--        bit 31~0 - input_3[31:0] (Read/Write)
+-- 0x38 : Data signal of input_3
+--        bit 31~0 - input_3[63:32] (Read/Write)
+-- 0x3c : reserved
+-- 0x40 : Data signal of input_4
+--        bit 31~0 - input_4[31:0] (Read/Write)
+-- 0x44 : Data signal of input_4
+--        bit 31~0 - input_4[63:32] (Read/Write)
+-- 0x48 : reserved
+-- 0x4c : Data signal of kernel_0
+--        bit 31~0 - kernel_0[31:0] (Read/Write)
+-- 0x50 : Data signal of kernel_0
+--        bit 31~0 - kernel_0[63:32] (Read/Write)
+-- 0x54 : reserved
+-- 0x58 : Data signal of kernel_1
+--        bit 31~0 - kernel_1[31:0] (Read/Write)
+-- 0x5c : Data signal of kernel_1
+--        bit 31~0 - kernel_1[63:32] (Read/Write)
+-- 0x60 : reserved
+-- 0x64 : Data signal of kernel_2
+--        bit 31~0 - kernel_2[31:0] (Read/Write)
+-- 0x68 : Data signal of kernel_2
+--        bit 31~0 - kernel_2[63:32] (Read/Write)
+-- 0x6c : reserved
+-- 0x70 : Data signal of output_r
+--        bit 31~0 - output_r[31:0] (Read/Write)
+-- 0x74 : Data signal of output_r
+--        bit 31~0 - output_r[63:32] (Read/Write)
+-- 0x78 : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of conv2D_conv2D_AXILiteS_s_axi is
@@ -92,16 +128,34 @@ architecture behave of conv2D_conv2D_AXILiteS_s_axi is
     constant ADDR_GIE             : INTEGER := 16#04#;
     constant ADDR_IER             : INTEGER := 16#08#;
     constant ADDR_ISR             : INTEGER := 16#0c#;
-    constant ADDR_INPUT_R_DATA_0  : INTEGER := 16#10#;
-    constant ADDR_INPUT_R_DATA_1  : INTEGER := 16#14#;
-    constant ADDR_INPUT_R_CTRL    : INTEGER := 16#18#;
-    constant ADDR_KERNEL_DATA_0   : INTEGER := 16#1c#;
-    constant ADDR_KERNEL_DATA_1   : INTEGER := 16#20#;
-    constant ADDR_KERNEL_CTRL     : INTEGER := 16#24#;
-    constant ADDR_OUTPUT_R_DATA_0 : INTEGER := 16#28#;
-    constant ADDR_OUTPUT_R_DATA_1 : INTEGER := 16#2c#;
-    constant ADDR_OUTPUT_R_CTRL   : INTEGER := 16#30#;
-    constant ADDR_BITS         : INTEGER := 6;
+    constant ADDR_INPUT_0_DATA_0  : INTEGER := 16#10#;
+    constant ADDR_INPUT_0_DATA_1  : INTEGER := 16#14#;
+    constant ADDR_INPUT_0_CTRL    : INTEGER := 16#18#;
+    constant ADDR_INPUT_1_DATA_0  : INTEGER := 16#1c#;
+    constant ADDR_INPUT_1_DATA_1  : INTEGER := 16#20#;
+    constant ADDR_INPUT_1_CTRL    : INTEGER := 16#24#;
+    constant ADDR_INPUT_2_DATA_0  : INTEGER := 16#28#;
+    constant ADDR_INPUT_2_DATA_1  : INTEGER := 16#2c#;
+    constant ADDR_INPUT_2_CTRL    : INTEGER := 16#30#;
+    constant ADDR_INPUT_3_DATA_0  : INTEGER := 16#34#;
+    constant ADDR_INPUT_3_DATA_1  : INTEGER := 16#38#;
+    constant ADDR_INPUT_3_CTRL    : INTEGER := 16#3c#;
+    constant ADDR_INPUT_4_DATA_0  : INTEGER := 16#40#;
+    constant ADDR_INPUT_4_DATA_1  : INTEGER := 16#44#;
+    constant ADDR_INPUT_4_CTRL    : INTEGER := 16#48#;
+    constant ADDR_KERNEL_0_DATA_0 : INTEGER := 16#4c#;
+    constant ADDR_KERNEL_0_DATA_1 : INTEGER := 16#50#;
+    constant ADDR_KERNEL_0_CTRL   : INTEGER := 16#54#;
+    constant ADDR_KERNEL_1_DATA_0 : INTEGER := 16#58#;
+    constant ADDR_KERNEL_1_DATA_1 : INTEGER := 16#5c#;
+    constant ADDR_KERNEL_1_CTRL   : INTEGER := 16#60#;
+    constant ADDR_KERNEL_2_DATA_0 : INTEGER := 16#64#;
+    constant ADDR_KERNEL_2_DATA_1 : INTEGER := 16#68#;
+    constant ADDR_KERNEL_2_CTRL   : INTEGER := 16#6c#;
+    constant ADDR_OUTPUT_R_DATA_0 : INTEGER := 16#70#;
+    constant ADDR_OUTPUT_R_DATA_1 : INTEGER := 16#74#;
+    constant ADDR_OUTPUT_R_CTRL   : INTEGER := 16#78#;
+    constant ADDR_BITS         : INTEGER := 7;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
     signal wmask               : UNSIGNED(31 downto 0);
@@ -123,8 +177,14 @@ architecture behave of conv2D_conv2D_AXILiteS_s_axi is
     signal int_gie             : STD_LOGIC := '0';
     signal int_ier             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_isr             : UNSIGNED(1 downto 0) := (others => '0');
-    signal int_input_r         : UNSIGNED(63 downto 0) := (others => '0');
-    signal int_kernel          : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_input_0         : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_input_1         : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_input_2         : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_input_3         : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_input_4         : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_kernel_0        : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_kernel_1        : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_kernel_2        : UNSIGNED(63 downto 0) := (others => '0');
     signal int_output_r        : UNSIGNED(63 downto 0) := (others => '0');
 
 
@@ -247,14 +307,38 @@ begin
                         rdata_data <= (1 => int_ier(1), 0 => int_ier(0), others => '0');
                     when ADDR_ISR =>
                         rdata_data <= (1 => int_isr(1), 0 => int_isr(0), others => '0');
-                    when ADDR_INPUT_R_DATA_0 =>
-                        rdata_data <= RESIZE(int_input_r(31 downto 0), 32);
-                    when ADDR_INPUT_R_DATA_1 =>
-                        rdata_data <= RESIZE(int_input_r(63 downto 32), 32);
-                    when ADDR_KERNEL_DATA_0 =>
-                        rdata_data <= RESIZE(int_kernel(31 downto 0), 32);
-                    when ADDR_KERNEL_DATA_1 =>
-                        rdata_data <= RESIZE(int_kernel(63 downto 32), 32);
+                    when ADDR_INPUT_0_DATA_0 =>
+                        rdata_data <= RESIZE(int_input_0(31 downto 0), 32);
+                    when ADDR_INPUT_0_DATA_1 =>
+                        rdata_data <= RESIZE(int_input_0(63 downto 32), 32);
+                    when ADDR_INPUT_1_DATA_0 =>
+                        rdata_data <= RESIZE(int_input_1(31 downto 0), 32);
+                    when ADDR_INPUT_1_DATA_1 =>
+                        rdata_data <= RESIZE(int_input_1(63 downto 32), 32);
+                    when ADDR_INPUT_2_DATA_0 =>
+                        rdata_data <= RESIZE(int_input_2(31 downto 0), 32);
+                    when ADDR_INPUT_2_DATA_1 =>
+                        rdata_data <= RESIZE(int_input_2(63 downto 32), 32);
+                    when ADDR_INPUT_3_DATA_0 =>
+                        rdata_data <= RESIZE(int_input_3(31 downto 0), 32);
+                    when ADDR_INPUT_3_DATA_1 =>
+                        rdata_data <= RESIZE(int_input_3(63 downto 32), 32);
+                    when ADDR_INPUT_4_DATA_0 =>
+                        rdata_data <= RESIZE(int_input_4(31 downto 0), 32);
+                    when ADDR_INPUT_4_DATA_1 =>
+                        rdata_data <= RESIZE(int_input_4(63 downto 32), 32);
+                    when ADDR_KERNEL_0_DATA_0 =>
+                        rdata_data <= RESIZE(int_kernel_0(31 downto 0), 32);
+                    when ADDR_KERNEL_0_DATA_1 =>
+                        rdata_data <= RESIZE(int_kernel_0(63 downto 32), 32);
+                    when ADDR_KERNEL_1_DATA_0 =>
+                        rdata_data <= RESIZE(int_kernel_1(31 downto 0), 32);
+                    when ADDR_KERNEL_1_DATA_1 =>
+                        rdata_data <= RESIZE(int_kernel_1(63 downto 32), 32);
+                    when ADDR_KERNEL_2_DATA_0 =>
+                        rdata_data <= RESIZE(int_kernel_2(31 downto 0), 32);
+                    when ADDR_KERNEL_2_DATA_1 =>
+                        rdata_data <= RESIZE(int_kernel_2(63 downto 32), 32);
                     when ADDR_OUTPUT_R_DATA_0 =>
                         rdata_data <= RESIZE(int_output_r(31 downto 0), 32);
                     when ADDR_OUTPUT_R_DATA_1 =>
@@ -270,8 +354,14 @@ begin
 -- ----------------------- Register logic ----------------
     interrupt            <= int_gie and (int_isr(0) or int_isr(1));
     ap_start             <= int_ap_start;
-    input_r              <= STD_LOGIC_VECTOR(int_input_r);
-    kernel               <= STD_LOGIC_VECTOR(int_kernel);
+    input_0              <= STD_LOGIC_VECTOR(int_input_0);
+    input_1              <= STD_LOGIC_VECTOR(int_input_1);
+    input_2              <= STD_LOGIC_VECTOR(int_input_2);
+    input_3              <= STD_LOGIC_VECTOR(int_input_3);
+    input_4              <= STD_LOGIC_VECTOR(int_input_4);
+    kernel_0             <= STD_LOGIC_VECTOR(int_kernel_0);
+    kernel_1             <= STD_LOGIC_VECTOR(int_kernel_1);
+    kernel_2             <= STD_LOGIC_VECTOR(int_kernel_2);
     output_r             <= STD_LOGIC_VECTOR(int_output_r);
 
     process (ACLK)
@@ -403,8 +493,8 @@ begin
     begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_INPUT_R_DATA_0) then
-                    int_input_r(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_r(31 downto 0));
+                if (w_hs = '1' and waddr = ADDR_INPUT_0_DATA_0) then
+                    int_input_0(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_0(31 downto 0));
                 end if;
             end if;
         end if;
@@ -414,8 +504,8 @@ begin
     begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_INPUT_R_DATA_1) then
-                    int_input_r(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_r(63 downto 32));
+                if (w_hs = '1' and waddr = ADDR_INPUT_0_DATA_1) then
+                    int_input_0(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_0(63 downto 32));
                 end if;
             end if;
         end if;
@@ -425,8 +515,8 @@ begin
     begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_KERNEL_DATA_0) then
-                    int_kernel(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_kernel(31 downto 0));
+                if (w_hs = '1' and waddr = ADDR_INPUT_1_DATA_0) then
+                    int_input_1(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_1(31 downto 0));
                 end if;
             end if;
         end if;
@@ -436,8 +526,140 @@ begin
     begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_KERNEL_DATA_1) then
-                    int_kernel(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_kernel(63 downto 32));
+                if (w_hs = '1' and waddr = ADDR_INPUT_1_DATA_1) then
+                    int_input_1(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_1(63 downto 32));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_INPUT_2_DATA_0) then
+                    int_input_2(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_2(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_INPUT_2_DATA_1) then
+                    int_input_2(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_2(63 downto 32));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_INPUT_3_DATA_0) then
+                    int_input_3(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_3(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_INPUT_3_DATA_1) then
+                    int_input_3(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_3(63 downto 32));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_INPUT_4_DATA_0) then
+                    int_input_4(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_4(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_INPUT_4_DATA_1) then
+                    int_input_4(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_4(63 downto 32));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_KERNEL_0_DATA_0) then
+                    int_kernel_0(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_kernel_0(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_KERNEL_0_DATA_1) then
+                    int_kernel_0(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_kernel_0(63 downto 32));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_KERNEL_1_DATA_0) then
+                    int_kernel_1(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_kernel_1(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_KERNEL_1_DATA_1) then
+                    int_kernel_1(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_kernel_1(63 downto 32));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_KERNEL_2_DATA_0) then
+                    int_kernel_2(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_kernel_2(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_KERNEL_2_DATA_1) then
+                    int_kernel_2(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_kernel_2(63 downto 32));
                 end if;
             end if;
         end if;

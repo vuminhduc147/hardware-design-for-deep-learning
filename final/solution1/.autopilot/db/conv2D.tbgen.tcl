@@ -15,17 +15,29 @@ set C_modelArgList {
 	{ gmem0 int 32 regular {axi_master 0}  }
 	{ gmem1 int 32 regular {axi_master 0}  }
 	{ gmem2 int 32 regular {axi_master 1}  }
-	{ input_r int 64 regular {axi_slave 0}  }
-	{ kernel int 64 regular {axi_slave 0}  }
+	{ input_0 int 64 regular {axi_slave 0}  }
+	{ input_1 int 64 regular {axi_slave 0}  }
+	{ input_2 int 64 regular {axi_slave 0}  }
+	{ input_3 int 64 regular {axi_slave 0}  }
+	{ input_4 int 64 regular {axi_slave 0}  }
+	{ kernel_0 int 64 regular {axi_slave 0}  }
+	{ kernel_1 int 64 regular {axi_slave 0}  }
+	{ kernel_2 int 64 regular {axi_slave 0}  }
 	{ output_r int 64 regular {axi_slave 0}  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "gmem0", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "input","cData": "int","bit_use": { "low": 0,"up": 31},"offset": { "type": "dynamic","port_name": "input_r","bundle": "AXILiteS"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 4,"step" : 1},{"low" : 0,"up" : 4,"step" : 1}]}]}]} , 
- 	{ "Name" : "gmem1", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "kernel","cData": "int","bit_use": { "low": 0,"up": 31},"offset": { "type": "dynamic","port_name": "kernel","bundle": "AXILiteS"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 2,"step" : 1},{"low" : 0,"up" : 2,"step" : 1}]}]}]} , 
+	{ "Name" : "gmem0", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "input","cData": "int","bit_use": { "low": 0,"up": 31},"offset": { "type": "dynamic","port_name": "input_0"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 4,"step" : 1},{"low" : 0,"up" : 0,"step" : 2}]},{"cName": "input","cData": "int","bit_use": { "low": 0,"up": 31},"offset": { "type": "dynamic","port_name": "input_1"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 4,"step" : 1},{"low" : 1,"up" : 1,"step" : 2}]},{"cName": "input","cData": "int","bit_use": { "low": 0,"up": 31},"offset": { "type": "dynamic","port_name": "input_2"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 4,"step" : 1},{"low" : 2,"up" : 2,"step" : 2}]},{"cName": "input","cData": "int","bit_use": { "low": 0,"up": 31},"offset": { "type": "dynamic","port_name": "input_3"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 4,"step" : 1},{"low" : 3,"up" : 3,"step" : 2}]},{"cName": "input","cData": "int","bit_use": { "low": 0,"up": 31},"offset": { "type": "dynamic","port_name": "input_4"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 4,"step" : 1},{"low" : 4,"up" : 4,"step" : 2}]}]}]} , 
+ 	{ "Name" : "gmem1", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "kernel","cData": "int","bit_use": { "low": 0,"up": 31},"offset": { "type": "dynamic","port_name": "kernel_0"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 2,"step" : 1},{"low" : 0,"up" : 0,"step" : 2}]},{"cName": "kernel","cData": "int","bit_use": { "low": 0,"up": 31},"offset": { "type": "dynamic","port_name": "kernel_1"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 2,"step" : 1},{"low" : 1,"up" : 1,"step" : 2}]},{"cName": "kernel","cData": "int","bit_use": { "low": 0,"up": 31},"offset": { "type": "dynamic","port_name": "kernel_2"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 2,"step" : 1},{"low" : 2,"up" : 2,"step" : 2}]}]}]} , 
  	{ "Name" : "gmem2", "interface" : "axi_master", "bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "output","cData": "int","bit_use": { "low": 0,"up": 31},"offset": { "type": "dynamic","port_name": "output_r","bundle": "AXILiteS"},"direction": "WRITEONLY","cArray": [{"low" : 0,"up" : 2,"step" : 1},{"low" : 0,"up" : 2,"step" : 1}]}]}]} , 
- 	{ "Name" : "input_r", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":16}, "offset_end" : {"in":27}} , 
- 	{ "Name" : "kernel", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":28}, "offset_end" : {"in":39}} , 
- 	{ "Name" : "output_r", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":40}, "offset_end" : {"in":51}} ]}
+ 	{ "Name" : "input_0", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":16}, "offset_end" : {"in":27}} , 
+ 	{ "Name" : "input_1", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":28}, "offset_end" : {"in":39}} , 
+ 	{ "Name" : "input_2", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":40}, "offset_end" : {"in":51}} , 
+ 	{ "Name" : "input_3", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":52}, "offset_end" : {"in":63}} , 
+ 	{ "Name" : "input_4", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":64}, "offset_end" : {"in":75}} , 
+ 	{ "Name" : "kernel_0", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":76}, "offset_end" : {"in":87}} , 
+ 	{ "Name" : "kernel_1", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":88}, "offset_end" : {"in":99}} , 
+ 	{ "Name" : "kernel_2", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":100}, "offset_end" : {"in":111}} , 
+ 	{ "Name" : "output_r", "interface" : "axi_slave", "bundle":"AXILiteS","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":112}, "offset_end" : {"in":123}} ]}
 # RTL Port declarations: 
 set portNum 155
 set portList { 
@@ -168,14 +180,14 @@ set portList {
 	{ m_axi_gmem2_BUSER sc_in sc_lv 1 signal 2 } 
 	{ s_axi_AXILiteS_AWVALID sc_in sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_AWREADY sc_out sc_logic 1 signal -1 } 
-	{ s_axi_AXILiteS_AWADDR sc_in sc_lv 6 signal -1 } 
+	{ s_axi_AXILiteS_AWADDR sc_in sc_lv 7 signal -1 } 
 	{ s_axi_AXILiteS_WVALID sc_in sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_WREADY sc_out sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_WDATA sc_in sc_lv 32 signal -1 } 
 	{ s_axi_AXILiteS_WSTRB sc_in sc_lv 4 signal -1 } 
 	{ s_axi_AXILiteS_ARVALID sc_in sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_ARREADY sc_out sc_logic 1 signal -1 } 
-	{ s_axi_AXILiteS_ARADDR sc_in sc_lv 6 signal -1 } 
+	{ s_axi_AXILiteS_ARADDR sc_in sc_lv 7 signal -1 } 
 	{ s_axi_AXILiteS_RVALID sc_out sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_RREADY sc_in sc_logic 1 signal -1 } 
 	{ s_axi_AXILiteS_RDATA sc_out sc_lv 32 signal -1 } 
@@ -186,14 +198,14 @@ set portList {
 	{ interrupt sc_out sc_logic 1 signal -1 } 
 }
 set NewPortList {[ 
-	{ "name": "s_axi_AXILiteS_AWADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "AXILiteS", "role": "AWADDR" },"address":[{"name":"conv2D","role":"start","value":"0","valid_bit":"0"},{"name":"conv2D","role":"continue","value":"0","valid_bit":"4"},{"name":"conv2D","role":"auto_start","value":"0","valid_bit":"7"},{"name":"input_r","role":"data","value":"16"},{"name":"kernel","role":"data","value":"28"},{"name":"output_r","role":"data","value":"40"}] },
+	{ "name": "s_axi_AXILiteS_AWADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "AXILiteS", "role": "AWADDR" },"address":[{"name":"conv2D","role":"start","value":"0","valid_bit":"0"},{"name":"conv2D","role":"continue","value":"0","valid_bit":"4"},{"name":"conv2D","role":"auto_start","value":"0","valid_bit":"7"},{"name":"input_0","role":"data","value":"16"},{"name":"input_1","role":"data","value":"28"},{"name":"input_2","role":"data","value":"40"},{"name":"input_3","role":"data","value":"52"},{"name":"input_4","role":"data","value":"64"},{"name":"kernel_0","role":"data","value":"76"},{"name":"kernel_1","role":"data","value":"88"},{"name":"kernel_2","role":"data","value":"100"},{"name":"output_r","role":"data","value":"112"}] },
 	{ "name": "s_axi_AXILiteS_AWVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "AWVALID" } },
 	{ "name": "s_axi_AXILiteS_AWREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "AWREADY" } },
 	{ "name": "s_axi_AXILiteS_WVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "WVALID" } },
 	{ "name": "s_axi_AXILiteS_WREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "WREADY" } },
 	{ "name": "s_axi_AXILiteS_WDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "AXILiteS", "role": "WDATA" } },
 	{ "name": "s_axi_AXILiteS_WSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "AXILiteS", "role": "WSTRB" } },
-	{ "name": "s_axi_AXILiteS_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "AXILiteS", "role": "ARADDR" },"address":[{"name":"conv2D","role":"start","value":"0","valid_bit":"0"},{"name":"conv2D","role":"done","value":"0","valid_bit":"1"},{"name":"conv2D","role":"idle","value":"0","valid_bit":"2"},{"name":"conv2D","role":"ready","value":"0","valid_bit":"3"},{"name":"conv2D","role":"auto_start","value":"0","valid_bit":"7"}] },
+	{ "name": "s_axi_AXILiteS_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "AXILiteS", "role": "ARADDR" },"address":[{"name":"conv2D","role":"start","value":"0","valid_bit":"0"},{"name":"conv2D","role":"done","value":"0","valid_bit":"1"},{"name":"conv2D","role":"idle","value":"0","valid_bit":"2"},{"name":"conv2D","role":"ready","value":"0","valid_bit":"3"},{"name":"conv2D","role":"auto_start","value":"0","valid_bit":"7"}] },
 	{ "name": "s_axi_AXILiteS_ARVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "ARVALID" } },
 	{ "name": "s_axi_AXILiteS_ARREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "ARREADY" } },
 	{ "name": "s_axi_AXILiteS_RVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "AXILiteS", "role": "RVALID" } },
@@ -370,8 +382,14 @@ set RtlHierarchyInfo {[
 					{"Name" : "gmem2_blk_n_AW", "Type" : "RtlSignal"},
 					{"Name" : "gmem2_blk_n_W", "Type" : "RtlSignal"},
 					{"Name" : "gmem2_blk_n_B", "Type" : "RtlSignal"}]},
-			{"Name" : "input_r", "Type" : "None", "Direction" : "I"},
-			{"Name" : "kernel", "Type" : "None", "Direction" : "I"},
+			{"Name" : "input_0", "Type" : "None", "Direction" : "I"},
+			{"Name" : "input_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "input_2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "input_3", "Type" : "None", "Direction" : "I"},
+			{"Name" : "input_4", "Type" : "None", "Direction" : "I"},
+			{"Name" : "kernel_0", "Type" : "None", "Direction" : "I"},
+			{"Name" : "kernel_1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "kernel_2", "Type" : "None", "Direction" : "I"},
 			{"Name" : "output_r", "Type" : "None", "Direction" : "I"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.conv2D_AXILiteS_s_axi_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.conv2D_gmem0_m_axi_U", "Parent" : "0"},
@@ -465,8 +483,14 @@ set ArgLastReadFirstWriteLatency {
 		gmem0 {Type I LastRead 32 FirstWrite -1}
 		gmem1 {Type I LastRead 16 FirstWrite -1}
 		gmem2 {Type O LastRead 41 FirstWrite 32}
-		input_r {Type I LastRead 0 FirstWrite -1}
-		kernel {Type I LastRead 0 FirstWrite -1}
+		input_0 {Type I LastRead 0 FirstWrite -1}
+		input_1 {Type I LastRead 0 FirstWrite -1}
+		input_2 {Type I LastRead 0 FirstWrite -1}
+		input_3 {Type I LastRead 0 FirstWrite -1}
+		input_4 {Type I LastRead 0 FirstWrite -1}
+		kernel_0 {Type I LastRead 0 FirstWrite -1}
+		kernel_1 {Type I LastRead 0 FirstWrite -1}
+		kernel_2 {Type I LastRead 0 FirstWrite -1}
 		output_r {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0

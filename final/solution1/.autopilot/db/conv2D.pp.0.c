@@ -653,6 +653,15 @@ void conv2D(int input[5][5],
 #pragma HLS PIPELINE
 
 
+#pragma HLS RESOURCE variable=&input core=RAM_2P_BRAM
+#pragma HLS RESOURCE variable=&kernel core=RAM_2P_BRAM
+#pragma HLS RESOURCE variable=&output core=RAM_2P_BRAM
+
+
+#pragma HLS ARRAY_PARTITION variable=&input complete dim=2
+#pragma HLS ARRAY_PARTITION variable=&kernel complete dim=2
+
+
  for (int i = 0; i <= 5 - 3; i++) {
         for (int j = 0; j <= 5 - 3; j++) {
             int sum = 0;
@@ -668,11 +677,11 @@ void conv2D(int input[5][5],
     }
 }
 
-        void printMatrix(int rows, int cols, int matrix[rows][cols]) {
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < cols; j++) {
-                    printf("%d ", matrix[i][j]);
-                }
-                printf("\n");
-            }
+void printMatrix(int rows, int cols, int matrix[rows][cols]) {
+ for (int i = 0; i < rows; i++) {
+  for (int j = 0; j < cols; j++) {
+   printf("%d ", matrix[i][j]);
         }
+        printf("\n");
+ }
+}

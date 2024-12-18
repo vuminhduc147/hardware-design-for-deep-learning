@@ -653,6 +653,15 @@ _ssdm_op_SpecInterface(output, "m_axi", 0, 0, "", 0, 0, "gmem2", "slave", "", 16
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 
 
+_ssdm_op_SpecResource(input, "", "RAM_2P_BRAM", "", -1, "", "", "", "", "");
+_ssdm_op_SpecResource(kernel, "", "RAM_2P_BRAM", "", -1, "", "", "", "", "");
+_ssdm_op_SpecResource(output, "", "RAM_2P_BRAM", "", -1, "", "", "", "", "");
+
+
+_ssdm_SpecArrayPartition( input, 2, "COMPLETE", 0, "");
+_ssdm_SpecArrayPartition( kernel, 2, "COMPLETE", 0, "");
+
+
  for (int i = 0; i <= 5 - 3; i++) {
         for (int j = 0; j <= 5 - 3; j++) {
             int sum = 0;
@@ -668,11 +677,11 @@ _ssdm_Unroll(0,0,0, "");
     }
 }
 
-        void printMatrix(int rows, int cols, int matrix[rows][cols]) {
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < cols; j++) {
-                    printf("%d ", matrix[i][j]);
-                }
-                printf("\n");
-            }
+void printMatrix(int rows, int cols, int matrix[rows][cols]) {
+ for (int i = 0; i < rows; i++) {
+  for (int j = 0; j < cols; j++) {
+   printf("%d ", matrix[i][j]);
         }
+        printf("\n");
+ }
+}
